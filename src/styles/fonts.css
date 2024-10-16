@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "Khula-bold";
+    src: url(../../public/assets/fonts/Khula-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Khula-ExtraBold";
+    src: url(../../public/assets/fonts/Khula-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: "Khula-Light";
+    src: url(../../public/assets/fonts/Khula-Light.ttf);
+}
+
+@font-face {
+    font-family: "Khula-Regular";
+    src: url(../../public/assets/fonts/Khula-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Khula-SemiBold";
+    src: url(../../public/assets/fonts/Khula-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "LondrinaSolid-Black";
+    src: url(../../public/assets/fonts/LondrinaSolid-Black.ttf);
+}
+
+@font-face {
+    font-family: "LondrinaSolid-Light";
+    src: url(../../public/assets/fonts/LondrinaSolid-Light.ttf);
+}
+
+@font-face {
+    font-family: "LondrinaSolid-Regular";
+    src: url(../../public/assets/fonts/LondrinaSolid-Regular.ttf);
+}
+
+@font-face {
+    font-family: "LondrinaSolid-Thin";
+    src: url(../../public/assets/fonts/LondrinaSolid-Thin.ttf);
+}
