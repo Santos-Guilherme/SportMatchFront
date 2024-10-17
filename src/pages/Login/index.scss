@@ -94,6 +94,24 @@
       align-items: center;
       width: 100%; /* Para ocupar a largura total */
     }
+
+    .Logo{
+        position: absolute;
+        width: 40%;
+        height: 150px;
+        left: 70px;
+        top: -15px;
+        border-radius: 10px;
+        
+    }
+
+    .Logo2{
+        position: absolute;
+        width: 20%;
+        height: 150px;
+        left: 120px;
+        top: -10px;
+    }
   
     .sign-in {
       left: 0;

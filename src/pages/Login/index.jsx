@@ -14,6 +14,7 @@ export default function Login() {
       <div className={`container ${active ? 'active' : ''}`} id="container">
         <div className="form-container sign-up">
           <form>
+            <img src='/assets/images/SportMatch-removebg-preview.png' className='Logo'></img>
             <h1>Registrar</h1>
             <input type="text" placeholder="Usuário" />
             <input type="email" placeholder="Email" />
@@ -24,6 +25,7 @@ export default function Login() {
 
         <div className="form-container sign-in">
           <form>
+            <img src='/assets/images/SportMatch-removebg-preview.png' className='Logo2'></img>
             <h1>Login</h1>
             <input type="email" placeholder="Email" />
             <input type="password" placeholder="Senha" />
