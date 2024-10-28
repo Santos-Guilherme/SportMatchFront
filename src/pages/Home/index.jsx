@@ -20,21 +20,21 @@ export default function Home() {
             </section>
             <section className='secao2'>
                 <h2>Diversidade de esportes, uma única plataforma!</h2>
-                <div>
-                    <div>
+                <div className='esportes-container'>
+                    <div className='esporte'>
                         <p>Futebol</p>
                     </div>
-                    <div>
+                    <div className='esporte'>
                         <p>Basquete</p>
                     </div>
-                    <div>
-                        <p>Volêi</p>
+                    <div className='esporte'>
+                        <p>Volei</p>
                     </div>
-                    <div>
+                    <div className='esporte'>
                         <p>Handebol</p>
                     </div>
                 </div>
-            </section>
+                </section>
             <section className='secao3'>
                 <h2>Como o SportsMatch funciona?</h2>
                 <div>

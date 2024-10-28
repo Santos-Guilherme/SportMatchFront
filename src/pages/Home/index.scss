@@ -41,35 +41,55 @@
         }
     }
 
-    .secao2{
+    .secao2 {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        gap: 20px;
-        h2{
+        align-items: center;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 1500px;
+
+        h2 {
             margin: 20px;
             font-family: 'LondrinaSolid-Regular';
             font-size: 30px;
             color: var(--secondary-color);
             text-align: center;
         }
-        div{
-            display: flex;
-            justify-content: space-around;
-            div{
-                background-color: rgb(74, 73, 73);
-                height: 150px;
-                width: 20%;
+
+        .esportes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            width: 100%;
+
+            .esporte {
+                position: relative;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 350px;
+                height: 200px;
                 display: flex;
                 align-items: center;
+                justify-content: center;
                 border-radius: 15px;
-                p{
-                    font-family: 'Khula-SemiBold';
+                overflow: hidden;
+                
+                p {
+                    position: absolute;
                     color: #fff;
+                    font-family: 'Khula-SemiBold';
+                    text-transform: uppercase;
                     font-size: 26px;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
                 }
             }
-            margin-bottom: 20px;
+
+            /* Definindo imagens específicas para cada esporte */
+            .esporte:nth-child(1) { background-image: url('/assets/images/futebol.png'); }
+            .esporte:nth-child(2) { background-image: url('/assets/images/basquete.png'); }
+            .esporte:nth-child(3) { background-image: url('/assets/images/volei.png'); }
+            .esporte:nth-child(4) { background-image: url('/assets/images/handebol.png'); }
         }
     }
     .secao3{
