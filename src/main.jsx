@@ -2,8 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import Login from './pages/Login'
-import './styles/fonts.css';
-import './styles/reset.css';
+import './styles/style.scss';
 import Home from './pages/Home';
 
 

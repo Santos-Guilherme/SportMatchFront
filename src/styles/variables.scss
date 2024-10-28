@@ -1,3 +1,4 @@
+// Fonts
 @font-face {
     font-family: "Khula-bold";
     src: url(../../public/assets/fonts/Khula-Bold.ttf);
@@ -41,4 +42,10 @@
 @font-face {
     font-family: "LondrinaSolid-Thin";
     src: url(../../public/assets/fonts/LondrinaSolid-Thin.ttf);
+}
+
+// Colors
+:root {
+    --primary-color: #AE00FF;
+    --secondary-color: #0E079A;
 }

@@ -3,9 +3,9 @@
     flex-direction: row;
     width: 100%;
     height: 15vh;
-    background-color: #AE00FF;
+    background-color: var(--primary-color);
     justify-content: space-between;
-    color: white;
+    color: #fff;
 
     a:visited{
         color: #fff;
@@ -37,10 +37,10 @@
         span{
             padding: 10px 20px;
             background-color: #fff;
-            color: #AE00FF;
+            color: var(--primary-color);
             border-radius: 10px;
             a:visited{
-                color: #AE00FF;
+                color: var(--primary-color);
             }        
             &:hover{
                 background-color: #d1d1d1;
