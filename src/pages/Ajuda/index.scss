@@ -1,0 +1,54 @@
+.Ajuda{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #999999;
+
+    .secao1{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+        .texto-secao1{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                align-items: center;
+                align-content: center;
+            }
+        }
+
+        h2{
+            font-family: 'Khula-Bold' ;
+            font-size: 30px;
+            line-height: 40px;
+        }
+    }
+
+    .secao2{
+
+        .texto-secao2{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: center;
+        }
+
+        h2{
+            font-family: 'Khula-Bold';
+        }
+
+        p{
+            font-family: 'Khula-SemiBold';
+        }
+
+        .butao{
+            
+            butao-anuncia{
+
+            }
+        }
+
+
+    }

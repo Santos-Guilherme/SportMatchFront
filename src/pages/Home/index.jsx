@@ -46,18 +46,18 @@ export default function Home() {
         <h2>Como o SportsMatch funciona?</h2>
         <div>
           <div>
-            <img src="/assets/images/home-section1.png" alt="" />
+            <img src="/assets/images/businessman-talking-phone.jpg" alt="" />
             <p>
               Selecione o seu esporte e explore as quadras disponíveis na sua
               região.
             </p>
           </div>
           <div>
-            <img src="/assets/images/home-section1.png" alt="" />
+            <img src="/assets/images/volleyball.jpg" alt="" />
             <p>Agende sua partida em poucos cliques.</p>
           </div>
           <div>
-            <img src="/assets/images/home-section1.png" alt="" />
+            <img src="/assets/images/women.jpg" alt="" />
             <p>Convide amigos ou participe de jogos já organizados.</p>
           </div>
         </div>
@@ -67,25 +67,47 @@ export default function Home() {
           Transforme sua quadra em um ponto de encontro para <br /> atletas e aumente
           suas reservas com a Sportsmatch!
         </h2>
-
         <div className="imagens-container">
           <div
             className="imagem-esporte"
-            style={{ backgroundImage: "url(/assets/images/home-section1.png)" }}
+            style={{ backgroundImage: "url(/assets/images/soccer.jpg)" }}
           >
           </div>
           <div
             className="imagem-esporte"
-            style={{ backgroundImage: "url(/assets/images/home-section1.png)" }} // trocar a imagem e ajustar o tam
+            style={{ backgroundImage: "url(/assets/images/basket.jpg)" }} // trocar a imagem e ajustar o tam
           >
           </div>
         </div>
-
         <div className="button-container">
-            <a href="" className="button-cadastrar">
-                Cadastre-se
-            </a>
+          <a href="" className="button-cadastrar">
+            Cadastre-se
+          </a>
         </div>
+      </section>
+      <section className="secao5">
+        <div className="imagem-quadras">
+          <div
+            className="imagem-quadra"
+            style={{ backgroundImage: "url(/assets/images/image.png)" }}
+          >
+          </div>
+          <div className="imagem-quadras">
+            <div
+              className="imagem-quadra"
+              style={{ backgroundImage: "url(/assets/images/quadra1.png)" }}
+            >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="secao6">
+        <div className="container-secao6">
+          <h2>
+            Entre em quadra e divirta-se!
+          </h2>
+        </div>
+
       </section>
     </div>
   );

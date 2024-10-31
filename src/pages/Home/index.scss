@@ -1,41 +1,47 @@
-.Home{
+.Home {
     display: flex;
     flex-direction: column;
     width: 100%;
 
-    .secao1{
+    .secao1 {
         width: 100%;
         display: flex;
         flex-direction: row;
         background-color: var(--primary-color);
         color: #fff;
-        div{
+
+        div {
             display: flex;
             flex-direction: column;
             width: 50%;
             align-items: center;
             align-content: center;
         }
-        h1{
+
+        h1 {
             font-family: 'LondrinaSolid-Regular';
             font-size: 30px;
-            line-height:40px
+            line-height: 40px
         }
-        p{
+
+        p {
             font-family: 'Khula-SemiBold';
             font-size: 15px;
-            line-height:25px
+            line-height: 25px
         }
-        img{
+
+        img {
             width: 100%;
             max-height: 480px;
             object-fit: cover;
             border-radius: 90px;
         }
-        .texto-secao1{
+
+        .texto-secao1 {
             justify-content: center;
             width: 60%;
-            div{
+
+            div {
                 gap: 25px;
             }
         }
@@ -76,7 +82,7 @@
                 border-radius: 15px;
                 overflow: hidden;
                 transition: all 0.3s;
-                
+
                 p {
                     position: absolute;
                     color: #fff;
@@ -92,44 +98,60 @@
             }
 
             /* Definindo imagens específicas para cada esporte */
-            .esporte:nth-child(1) { background-image: url('/assets/images/futebol.png'); }
-            .esporte:nth-child(2) { background-image: url('/assets/images/basquete.png'); }
-            .esporte:nth-child(3) { background-image: url('/assets/images/volei.png'); }
-            .esporte:nth-child(4) { background-image: url('/assets/images/handebol.png'); }
+            .esporte:nth-child(1) {
+                background-image: url('/assets/images/futebol.png');
+            }
+
+            .esporte:nth-child(2) {
+                background-image: url('/assets/images/basquete.png');
+            }
+
+            .esporte:nth-child(3) {
+                background-image: url('/assets/images/volei.png');
+            }
+
+            .esporte:nth-child(4) {
+                background-image: url('/assets/images/handebol.png');
+            }
         }
     }
-    .secao3{
+
+    .secao3 {
         display: flex;
         flex-direction: column;
         text-align: center;
         background-color: #E9E9E9;
         padding-bottom: 30px;
         margin-top: 30px;
-        h2{
+
+        h2 {
             margin: 20px;
             font-family: 'LondrinaSolid-Regular';
             font-size: 30px;
             color: var(--secondary-color);
             text-align: center;
         }
-        div{
+
+        div {
             display: flex;
             flex-direction: row;
             gap: 30px;
             margin: 20px 0px;
-            
-            div{
+
+            div {
                 display: flex;
                 flex-direction: column;
                 width: 30%;
                 align-items: center;
-                img{
+
+                img {
                     height: 250px;
                     width: 250px;
                     object-fit: cover;
                     border-radius: 100%;
                 }
-                p{
+
+                p {
                     font-family: 'Khula-SemiBold';
                     font-size: 16px;
                     width: 55%;
@@ -137,6 +159,7 @@
             }
         }
     }
+
     .secao4 {
         text-align: center;
         padding: 20px;
@@ -159,7 +182,7 @@
                 background-position: center;
                 background-repeat: no-repeat;
                 width: 716px;
-                height: 399px; 
+                height: 399px;
                 border-radius: 15px;
                 box-shadow: -10px 10px 15px rgba(14, 7, 154, 0.541);
                 overflow: hidden;
@@ -171,6 +194,7 @@
 
         .button-container {
             margin: 70px 0;
+
             .button-cadastrar {
                 color: var(--secondary-color);
                 font-family: 'Khula-SemiBold';
@@ -181,12 +205,58 @@
                 background-color: transparent;
                 transition: background-color 0.3s, color 0.3s;
                 text-decoration: none;
-    
+
                 &:hover {
                     background-color: var(--secondary-color);
                     color: #fff;
                 }
+
             }
         }
+    }
+}
+
+.secao5 {
+    text-align: center;
+    padding: 20px;
+    background-color: #AE00FF;
+
+
+    .imagem-quadras {
+        display: flex;
+        justify-content: space-around;
+
+
+        .imagem-quadra {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 716px;
+            height: 399px;
+            border-radius: 15px;
+            box-shadow: -10px 10px 15px rgba(14, 7, 154, 0.541);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.secao6 {
+    text-align: center;
+    
+
+    h2 {
+        font-family: 'LondrinaSolid-Regular';
+        font-size: 30px;
+        
+    }
+    
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10vh;
     }
 }
