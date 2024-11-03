@@ -1,5 +1,7 @@
 import "./index.scss";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+
 
 export default function Home() {
   return (
@@ -107,8 +109,10 @@ export default function Home() {
             Entre em quadra e divirta-se!
           </h2>
         </div>
-
       </section>
+      <footer>
+        <Footer></Footer>
+      </footer>
     </div>
   );
 }

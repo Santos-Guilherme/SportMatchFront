@@ -90,9 +90,14 @@
                     text-transform: uppercase;
                     font-size: 26px;
                     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+
+                    &:hover {
+                        cursor: default;
+                    }
                 }
 
                 &:hover {
+                    cursor: default;
                     scale: 1.04;
                 }
             }
@@ -214,49 +219,49 @@
             }
         }
     }
-}
 
-.secao5 {
-    text-align: center;
-    padding: 20px;
-    background-color: #AE00FF;
-
-
-    .imagem-quadras {
-        display: flex;
-        justify-content: space-around;
+    .secao5 {
+        text-align: center;
+        padding: 20px;
+        background-color: #AE00FF;
 
 
-        .imagem-quadra {
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            width: 716px;
-            height: 399px;
-            border-radius: 15px;
-            box-shadow: -10px 10px 15px rgba(14, 7, 154, 0.541);
-            overflow: hidden;
+        .imagem-quadras {
+            display: flex;
+            justify-content: space-around;
+
+
+            .imagem-quadra {
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 716px;
+                height: 399px;
+                border-radius: 15px;
+                box-shadow: -10px 10px 15px rgba(14, 7, 154, 0.541);
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    .secao6 {
+        text-align: center;
+
+
+        h2 {
+            font-family: 'LondrinaSolid-Regular';
+            font-size: 30px;
+
+        }
+
+        div {
             display: flex;
             align-items: center;
             justify-content: center;
+            height: 10vh;
         }
-    }
-}
-
-.secao6 {
-    text-align: center;
-    
-
-    h2 {
-        font-family: 'LondrinaSolid-Regular';
-        font-size: 30px;
-        
-    }
-    
-    div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 10vh;
     }
 }

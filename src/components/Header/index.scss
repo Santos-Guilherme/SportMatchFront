@@ -45,12 +45,13 @@
             &:hover{
                 background-color: #d1d1d1;
                 transition-duration: 0.3s;
+                box-shadow: -1px 3px 20px rgb(104, 104, 104);
             }
         }
     }
 
     a,span{
-        font-family: 'Khula-SemiBold';
+        font-family: 'Khula-Light';
         &:hover{
         cursor: pointer;
     }}
