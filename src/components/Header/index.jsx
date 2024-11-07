@@ -9,9 +9,10 @@ export default function Header() {
             </div>
             <div className='container links'>
                 <Link to='/explorar'>Explorar</Link>
-                <Link to='/anunciar'>Anunciar</Link>
-                <Link to='/sobre'>Sobre</Link>
+                <Link to='/partida'>Partidas</Link>
+                <Link to='/quadra'>Quadra</Link>
                 <Link to='/ajuda'>Ajuda</Link>
+                <Link to='/sobre'>Sobre</Link>
             </div>
             <div className='container blogin'>
                 <span>

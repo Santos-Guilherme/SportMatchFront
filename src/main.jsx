@@ -8,6 +8,8 @@ import Ajuda from './pages/Ajuda';
 import Partidas from './pages/Partidas';
 import Quadras from './pages/Quadras';
 import Sobre from './pages/Sobre';
+import PaginaAluguelQuadras from './pages/PaginaAluguelQuadras';
+import Registro from './pages/Registro';
 
 
 
@@ -21,6 +23,8 @@ createRoot(document.getElementById('root')).render(
         <Route path='/partida' element ={<Partidas/>}/>
         <Route path='/quadra' element ={<Quadras/>}/>
         <Route path='/sobre' element ={<Sobre/>}/>
+        <Route path='/alugar' element ={<PaginaAluguelQuadras/>}/>
+        <Route path="/registro" element={<Registro />} />
       </Routes>
 
     </BrowserRouter>

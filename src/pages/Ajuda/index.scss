@@ -29,11 +29,12 @@
 
         .category-buttons {
             display: flex;
-            gap: 10px;
+            gap: 40px;
             margin-bottom: 20px;
 
             button {
-                padding: 10px 15px;
+                width: 150px;
+                height: 150px;
                 background-color: #e0e0e0;
                 color: #333;
                 font-family: 'Khula-SemiBold';
