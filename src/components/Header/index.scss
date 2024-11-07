@@ -11,6 +11,10 @@
         color: #fff;
     }
     
+    a:link{
+        color: #fff;
+    }  
+    
     .container{
         display: flex;
         flex-direction: row;
@@ -19,7 +23,7 @@
         font-size: 15px;
     }
 
-    .container>img{
+    .container>a>img{
         margin-left: 80px;
         width: 20%;
     }
@@ -39,6 +43,9 @@
             background-color: #fff;
             color: var(--primary-color);
             border-radius: 10px;
+            a:link{
+                color: var(--primary-color);
+            }  
             a:visited{
                 color: var(--primary-color);
             }        
