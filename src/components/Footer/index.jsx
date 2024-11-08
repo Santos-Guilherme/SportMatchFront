@@ -7,19 +7,18 @@ export default function Footer() {
             <div className='secao1-footer'>
                 <div className='colunas-footer'>
                     <div className='coluna-partidas'>
-                        <h3>Encontre Partidas</h3>
+                        <h3>Contato</h3>
                         <ul>
-                            <li>Criar Partida</li>
-                            <li>Alugar Quadra</li>
-                            <li>Achar Partida</li>
+                            <li><Link>Email</Link></li>
+                            <li><Link>Contato para parcerias</Link></li>
+                            <li><Link>Instagram</Link></li>
                         </ul>
                     </div>
                     <div className='coluna-anunciantes'>
-                        <h3>Encontre Partidas</h3>
+                        <h3>Informações</h3>
                         <ul>
-                            <li>Criar Partida</li>
-                            <li>Alugar Quadra</li>
-                            <li>Achar Partida</li>
+                            <li><Link>Quadras parceiras</Link></li>
+                            <li><Link>Dúvidas frequentes</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -29,16 +28,16 @@ export default function Footer() {
             </div>
             <div className='secao2-footer'>
                 <div className='container-links-footer'>
-                    <a>Termos de uso</a>
-                    <a>Política de Privacidade</a>
+                    <Link to='/termos'>Termos de uso</Link>
+                    <Link to='/politica'>Política de Privacidade</Link>
                 </div>
-            </div>
-            <div className='grupo-footer'>
-                <div className='Logo-grupo'>
-                    <img src="/assets/images/SportMatchalt2-removebg-preview.png" alt="" />
-                </div>
-                <div className='copyright-text'>
-                    <p>Copyright 2024 Grupo GAMP3R. Todos os direitos reservados</p>
+                <div className='grupo-footer'>
+                    <div className='Logo-grupo'>
+                        <img src="/assets/images/grupoGAMP3R.png" alt="" />
+                    </div>
+                    <div className='copyright-text'>
+                        <p>Copyright 2024 Grupo GAMP3R. Todos os direitos reservados</p>
+                    </div>
                 </div>
             </div>
         </div>

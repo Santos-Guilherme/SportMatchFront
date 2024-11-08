@@ -1,52 +1,77 @@
-/* src/pages/Partidas/index.scss */
 .PartidasPage {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Khula-Regular', sans-serif;
+
+  .section-title{
     display: flex;
-    flex-direction: column;
-    height: 100vh;
-  
-    .main-content {
+    justify-content: center;
+    padding: 20px;
+    background-color: #AE00FF;
+    color: #fff;
+    h1{
+      font-family: 'Khula-Bold';
+      font-size: 44px;
+    }
+  }
+
+  .main-content {
       display: flex;
       flex: 1;
       padding: 20px;
-    }
-  
-    .filtro {
+  }
+
+  .filtro {
       width: 250px;
       padding: 20px;
       background-color: #f9f9f9;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       margin-right: 20px;
-    }
-  
-    .filtros-container {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      }
+  }
+
+  .filtros-container {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-  
+      gap: 15px;
+
       button {
-        padding: 10px;
-        font-family: 'Khula-SemiBold', sans-serif;
-        font-size: 16px;
-        color: var(--primary-color);
-        background-color: transparent;
-        border: 2px solid var(--primary-color);
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s, color 0.3s;
-  
-        &:hover {
-          background-color: var(--primary-color);
-          color: #fff;
-        }
+          padding: 12px;
+          font-family: 'Khula-SemiBold', sans-serif;
+          font-size: 16px;
+          color: #AE00FF;
+          background-color: transparent;
+          border: 2px solid #AE00FF;
+          border-radius: 10px;
+          cursor: pointer;
+          transition: background-color 0.3s, color 0.3s, transform 0.2s;
+
+          &:hover {
+              background-color: #AE00FF;
+              color: #fff;
+              transform: translateY(-3px);
+          }
+
+          &:active {
+              transform: translateY(0);
+              background-color: #9200cc;
+              color: #fff;
+          }
       }
-    }
-  
-    .partidas {
+  }
+
+  .partidas {
       flex-grow: 1;
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
-    }
+      padding: 10px;
   }
-  
+}

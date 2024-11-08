@@ -1,0 +1,63 @@
+.TermosDeUso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+    color: #AE00FF;
+    font-family: 'Khula-Regular', sans-serif;
+
+    .secao1 {
+        width: 100%;
+        text-align: center;
+        background-color: #AE00FF;
+        color: #fff;
+        padding: 40px 0;
+
+        h1 {
+            font-size: 48px;
+            font-weight: 400;
+            font-family: 'Khula-Bold';
+        }
+    }
+
+    .secao2 {
+        width: 100%;
+        max-width: 800px;
+        margin: 20px 0;
+        padding: 20px;
+        background-color: #fff;
+        color: #AE00FF;
+        border: 2px solid #AE00FF;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        div {
+            margin-bottom: 20px;
+
+            h2 {
+                font-size: 24px;
+                margin-bottom: 10px;
+                color: #AE00FF;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #333;
+            }
+
+            ul {
+                margin: 10px 0 0 20px;
+                padding: 0;
+                list-style-type: disc;
+                color: #333;
+
+                li {
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+}

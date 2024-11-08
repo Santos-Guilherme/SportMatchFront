@@ -7,12 +7,13 @@
     .content-quadras {
         display: flex;
         width: 100%;
-        justify-content: space-between;
+        justify-content: center;
         margin: 20px 0;
     }
 
     .info-quadras {
         flex: 1;
+        max-width: 1200px;
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -24,13 +25,19 @@
         align-items: center;
         margin-bottom: 20px;
 
-        button {
+        h2 {
+            font-family: 'Khula-Bold', sans-serif;
+            font-size: 24px;
+            color: #AE00FF;
+        }
+
+        .button-cadastroQuadras {
             background-color: var(--secondary-color);
             color: #fff;
             border: none;
             padding: 10px 20px;
             font-size: 16px;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s;
 
@@ -46,11 +53,17 @@
         margin-bottom: 20px;
 
         input {
-            padding: 8px;
+            padding: 10px;
             font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
             width: 200px;
+            transition: border-color 0.3s;
+
+            &:focus {
+                border-color: var(--primary-color);
+                outline: none;
+            }
         }
     }
 
@@ -62,7 +75,7 @@
     }
 
     .no-results-message {
-        color: red;
+        color: #FF0000;
         font-size: 16px;
         margin-top: 10px;
         text-align: center;
@@ -73,11 +86,12 @@
     .Quadras {
         .content-quadras {
             flex-direction: column;
+            align-items: center;
         }
-        
+
         .filters {
             flex-direction: column;
-            align-items: flex-start;
+            gap: 10px;
         }
 
         .profile-list {

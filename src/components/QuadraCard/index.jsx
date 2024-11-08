@@ -1,20 +1,20 @@
-// src/components/QuadraCard/index.jsx
 import React from 'react';
 import './index.scss';
 
-export default function QuadraCard({ id, nomeQuadra, localizacao, tipo, onDelete }) {
+function QuadraCard({ imagem, nome, localizacao, preco, descricao, tipo }) {
     return (
-        <div className='QuadraCard'>
-            <div className='detalhes'>
-                <h3>{nomeQuadra}</h3>
-                <div className='informacoes'>
-                    <p><strong>Localização:</strong> {localizacao}</p>
-                    <p><strong>Tipo:</strong> {tipo}</p>
-                </div>
-                <button onClick={() => onDelete(id)} className='deletar-btn'>
-                    Excluir
-                </button>
+        <div className="QuadraCard">
+            <img src={imagem} alt={`Imagem da ${nome}`} className="imagem-quadra" />
+            <div className="info-quadra">
+                <h2>{nome}</h2>
+                <p className="tipo-quadra">{tipo}</p>
+                <p className="descricao-quadra">{descricao}</p>
+                <p className="localizacao-quadra">Localização: {localizacao}</p>
+                <p className="preco-quadra">R$ {preco} / hora</p>
+                <button className="botao-alugar">Alugar</button>
             </div>
         </div>
     );
 }
+
+export default QuadraCard;

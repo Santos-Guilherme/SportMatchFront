@@ -17,10 +17,12 @@ export default function Login() {
           <form className="forgot-password-form">
             <h1>Recuperar Senha</h1>
             <input type="email" placeholder="Digite seu email para recuperar a senha" required />
-            <button type="button">Enviar</button>
-            <button type="button" onClick={handleForgotPasswordToggle}>
-              Voltar ao Login
-            </button>
+            <div>
+              <button type="button">Enviar</button>
+              <button type="button" onClick={handleForgotPasswordToggle}>
+                Voltar ao Login
+              </button>
+            </div>
           </form>
         ) : (
           <form className="login-form">

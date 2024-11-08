@@ -1,72 +1,82 @@
-/* src/components/PartidaCard/index.scss */
 .PartidaCard {
-    display: flex;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    padding: 20px;
-    transition: transform 0.3s ease-in-out;
-  
-    .detalhes {
+  display: flex;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 20px;
+  padding: 20px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .detalhes {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       flex-grow: 1;
-  
+
       .organizador-imagem {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        margin-bottom: 15px; /* Ajustado para ficar acima do nome */
-        object-fit: cover;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          margin-bottom: 15px;
+          object-fit: cover;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       }
-  
+
       h3 {
-        font-family: 'LondrinaSolid-Regular', sans-serif;
-        font-size: 24px;
-        color: var(--primary-color);
-        margin-bottom: 10px;
+          font-family: 'LondrinaSolid-Regular', sans-serif;
+          font-size: 24px;
+          color: #AE00FF;
+          margin-bottom: 10px;
       }
-  
+
       .informacoes {
-        margin-top: 10px;
-        font-family: 'Khula-SemiBold', sans-serif;
-        font-size: 16px;
-        color: #333;
-  
-        p {
-          margin: 5px 0;
-        }
-  
-        .esporte {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-  
-          .icone-esporte {
-            width: 20px;
-            height: 20px;
+          margin-top: 10px;
+          font-family: 'Khula-SemiBold', sans-serif;
+          font-size: 16px;
+          color: #333;
+
+          p {
+              margin: 5px 0;
           }
-        }
+
+          .esporte {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              .icone-esporte {
+                  width: 24px;
+                  height: 24px;
+              }
+          }
       }
-  
+
       .participar-btn {
-        margin-top: 20px;
-        padding: 10px 20px;
-        font-family: 'Khula-SemiBold', sans-serif;
-        font-size: 16px;
-        color: #fff;
-        background-color: var(--secondary-color);
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-  
-        &:hover {
-          background-color: var(--primary-color);
-        }
+          margin-top: 20px;
+          padding: 12px 24px;
+          font-family: 'Khula-SemiBold', sans-serif;
+          font-size: 16px;
+          color: #fff;
+          background-color: #AE00FF;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          transition: background-color 0.3s, transform 0.2s;
+
+          &:hover {
+              background-color: #9200cc;
+              transform: translateY(-3px);
+          }
+
+          &:active {
+              transform: translateY(0);
+              background-color: #7a00a9;
+          }
       }
-    }
   }
-  
+}

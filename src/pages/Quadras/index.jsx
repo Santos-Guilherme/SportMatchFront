@@ -29,10 +29,7 @@ export default function Quadras() {
         },
     ]);
     const [filteredQuadras, setFilteredQuadras] = useState(quadras);
-    const [filterNome, setFilterNome] = useState('');
-    const [filterLocalizacao, setFilterLocalizacao] = useState('');
-    const [filterId, setFilterId] = useState('');
-    const [noResultsMessage, setNoResultsMessage] = useState('');
+    const [filters, setFilters] = useState({ nome: '', localizacao: '', id: '' });
 
     const handleOpenModal = () => setIsModalOpen(true);
     const handleCloseModal = () => setIsModalOpen(false);
@@ -44,25 +41,16 @@ export default function Quadras() {
     };
 
     const handleFilterChange = (filterType, value) => {
-        const updatedFilters = { nome: filterNome, localizacao: filterLocalizacao, id: filterId };
-        updatedFilters[filterType] = value.trim();
+        const updatedFilters = { ...filters, [filterType]: value.trim() };
+        setFilters(updatedFilters);
+
+        const filtered = quadras.filter((quadra) =>
+            Object.keys(updatedFilters).every((key) =>
+                !updatedFilters[key] || quadra[key]?.toString().toLowerCase().includes(updatedFilters[key].toLowerCase())
+            )
+        );
         
-        setFilteredQuadras(quadras.filter((quadra) => {
-            return Object.keys(updatedFilters).every((key) => {
-                if (!updatedFilters[key]) return true; // Ignore empty filters
-                return quadra[key]?.toString().toLowerCase().includes(updatedFilters[key].toLowerCase());
-            });
-        }));
-
-        // No results message
-        const filtered = filteredQuadras.filter((quadra) => {
-            return Object.keys(updatedFilters).every((key) => {
-                if (!updatedFilters[key]) return true;
-                return quadra[key]?.toString().toLowerCase().includes(updatedFilters[key].toLowerCase());
-            });
-        });
-
-        setNoResultsMessage(filtered.length === 0 ? 'Nenhuma quadra encontrada com os filtros aplicados.' : '');
+        setFilteredQuadras(filtered);
     };
 
     return (
@@ -71,43 +59,37 @@ export default function Quadras() {
             <div className='content-quadras'>
                 <div className='info-quadras'>
                     <div className='content-titulo'>
-                        <div></div>
-                        <div>
-                            <h2>Quadras</h2>
-                        </div>
-                        <div>
-                            <button onClick={handleOpenModal} className='button-cadastroQuadras'>Cadastrar</button>
-                        </div>
+                        <h2>Quadras</h2>
                     </div>
                     <div className='filters'>
                         <input
                             type="text"
                             placeholder="Filtrar por nome"
-                            value={filterNome}
+                            value={filters.nome}
                             onChange={(e) => handleFilterChange('nome', e.target.value)}
                         />
                         <input
                             type="text"
                             placeholder="Filtrar por localização"
-                            value={filterLocalizacao}
+                            value={filters.localizacao}
                             onChange={(e) => handleFilterChange('localizacao', e.target.value)}
                         />
                         <input
                             type="text"
                             placeholder="Filtrar por ID da Quadra"
-                            value={filterId}
+                            value={filters.id}
                             onChange={(e) => handleFilterChange('id', e.target.value)}
                         />
                     </div>
-                    {noResultsMessage ? (
+                    {filteredQuadras.length === 0 ? (
                         <div className="no-results-message">
-                            {noResultsMessage}
+                            Nenhuma quadra encontrada com os filtros aplicados.
                         </div>
                     ) : (
                         <div className='profile-list'>
                             {filteredQuadras.map((quadra) => (
                                 <CardQuadra
-                                    key={quadra.id}  // Usando o 'id' como chave
+                                    key={quadra.id}
                                     id={quadra.id}
                                     nomeQuadra={quadra.nome}
                                     localizacao={quadra.localizacao}

@@ -1,18 +1,20 @@
 import React from 'react';
 import './index.scss';
 
-function CardQuadra({ imagem, nome, localizacao, preco }) {
+function QuadraCard({ imagem, nome, localizacao, preco, descricao, tipo }) {
     return (
         <div className="card-quadra">
-            <img src={imagem} alt={`Imagem da ${nome}`} />
+            <img src={imagem} alt={`Imagem da ${nome}`} className="imagem-quadra" />
             <div className="info-quadra">
                 <h2>{nome}</h2>
-                <p>Localização: {localizacao}</p>
-                <p className="preco">R$ {preco} / hora</p>
+                <p className="tipo-quadra">{tipo}</p>
+                <p className="descricao-quadra">{descricao}</p>
+                <p className="localizacao-quadra">Localização: {localizacao}</p>
+                <p className="preco-quadra">R$ {preco} / hora</p>
                 <button className="botao-alugar">Alugar</button>
             </div>
         </div>
     );
 }
 
-export default CardQuadra;
+export default QuadraCard;

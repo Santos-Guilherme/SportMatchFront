@@ -40,6 +40,9 @@ export default function Partidas() {
   return (
     <div className="PartidasPage">
       <Header />
+      <div className='section-title'>
+        <h1>Partidas</h1>
+      </div>
       <section className="main-content">
         <section className="filtro">
           <h1>Partidas Disponíveis</h1>

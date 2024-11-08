@@ -3,7 +3,14 @@
     flex-direction: column;
     color: #fff;
     width: 100%;
-    .secao1-footer{
+    a:link{
+        color: #fff;
+    }
+    a:visited{
+        color: #fff;
+    }
+
+    .secao1-footer {
         background-color: #000;
         display: flex;
         gap: 50px;
@@ -11,31 +18,74 @@
         height: 100%;
         justify-content: space-between;
         align-items: center;
-        .colunas-footer{
+
+        .colunas-footer {
             padding-left: 30px;
             display: flex;
             justify-content: space-between;
             gap: 10px;
             width: 32%;
-            h3{
+
+            h3 {
                 margin: 0px 0px 30px 0px;
                 font-family: 'Khula-SemiBold';
                 font-size: 24px;
             }
 
-            li{
+            li>a {
+                display: flex;
                 font-family: 'Khula-Light';
                 font-weight: 100;
                 font-size: 17px;
                 margin-top: 15px;
             }
         }
-        
-        .Logo{
+
+        .Logo {
             display: flex;
             align-items: center;
-            img{
+
+            img {
                 height: 40vh;
+            }
+        }
+    }
+
+    .secao2-footer {
+        width: 100%;
+        background-color: #0D0D0D;
+        display: flex;
+
+        .container-links-footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            width: 50%;
+            margin: 0px 0px 30px 30px;
+
+            a {
+                font-family: 'Khula-Light';
+                font-weight: 100;
+                font-size: 17px;
+                margin-top: 15px;
+            }
+        }
+
+        .grupo-footer{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            .Logo-grupo{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            img{
+                width: 50%;
             }
         }
     }

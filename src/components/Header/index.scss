@@ -6,6 +6,10 @@
     background-color: var(--primary-color);
     justify-content: space-between;
     color: #fff;
+    
+    a{
+        font-size: 19px;
+    }
 
     a:visited{
         color: #fff;
@@ -59,6 +63,7 @@
 
     a,span{
         font-family: 'Khula-Light';
+        
         &:hover{
         cursor: pointer;
     }}

@@ -10,6 +10,9 @@ import Quadras from './pages/Quadras';
 import Sobre from './pages/Sobre';
 import PaginaAluguelQuadras from './pages/PaginaAluguelQuadras';
 import Registro from './pages/Registro';
+import PoliticaDePrivacidade from './pages/PoliticaDePrivacidade';
+import TermosDeUso from './pages/TermosDeUso';
+import Explorar from './pages/Explorar';
 
 
 
@@ -25,6 +28,9 @@ createRoot(document.getElementById('root')).render(
         <Route path='/sobre' element ={<Sobre/>}/>
         <Route path='/alugar' element ={<PaginaAluguelQuadras/>}/>
         <Route path="/registro" element={<Registro />} />
+        <Route path="/termos" element={<TermosDeUso />} />
+        <Route path="/explorar" element={<Explorar />} />
+        <Route path="/politica" element={<PoliticaDePrivacidade />} />
       </Routes>
 
     </BrowserRouter>
