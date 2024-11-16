@@ -13,6 +13,7 @@ import Registro from './pages/Registro';
 import PoliticaDePrivacidade from './pages/PoliticaDePrivacidade';
 import TermosDeUso from './pages/TermosDeUso';
 import Explorar from './pages/Explorar';
+import EsqueceuSenha from './pages/EsqueceuSenha';
 
 
 
@@ -28,6 +29,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/sobre' element ={<Sobre/>}/>
         <Route path='/alugar' element ={<PaginaAluguelQuadras/>}/>
         <Route path="/registro" element={<Registro />} />
+        <Route path="/esqueceu_senha" element={<EsqueceuSenha />} />
         <Route path="/termos" element={<TermosDeUso />} />
         <Route path="/explorar" element={<Explorar />} />
         <Route path="/politica" element={<PoliticaDePrivacidade />} />

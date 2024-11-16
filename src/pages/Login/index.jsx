@@ -1,40 +1,34 @@
-// pages/Login.jsx
-import React, { useState } from 'react';
 import './index.scss';
 import { Link } from 'react-router-dom';
 
 export default function Login() {
-  const [showForgotPassword, setShowForgotPassword] = useState(false);
-
-  const handleForgotPasswordToggle = () => {
-    setShowForgotPassword(!showForgotPassword);
-  };
 
   return (
     <div className="Login">
-      <div className="form-box">
-        {showForgotPassword ? (
-          <form className="forgot-password-form">
-            <h1>Recuperar Senha</h1>
-            <input type="email" placeholder="Digite seu email para recuperar a senha" required />
-            <div>
-              <button type="button">Enviar</button>
-              <button type="button" onClick={handleForgotPasswordToggle}>
-                Voltar ao Login
-              </button>
-            </div>
-          </form>
-        ) : (
+      <div className="container">
+        <div className="form">
           <form className="login-form">
-            <img src="/assets/images/SportMatch-removebg-preview.png" className="logo" alt="Logo" />
-            <h1>Login</h1>
-            <input type="email" placeholder="Email" required />
-            <input type="password" placeholder="Senha" required />
-            <button type="button">Entrar</button>
-            <a href="#" onClick={handleForgotPasswordToggle}>Esqueceu a senha?</a>
-            <p>Não tem uma conta? <Link to="/registro">Registrar</Link></p>
+            <div className="form-header">
+              <h1 className="title">Login</h1>
+              <p>Não tem uma conta? <Link to="/registro" className="register-link">Registrar</Link></p>
+            </div>
+            <div className="input-group">
+              <div className="input-box">
+                <input type="email" placeholder="Email" required />
+              </div>
+              <div className="input-box">
+                <input type="password" placeholder="Senha" required />
+              </div>
+              <div className="input-box">
+                <Link to="/esqueceu_senha">Esqueceu a senha?</Link>
+              </div>
+            </div>
+            <button type="button" className="continue-button">Entrar</button>
           </form>
-        )}
+        </div>
+        <div className="form-image">
+          <img src="/assets/images/SportMatch-removebg-preview.png" alt="Logo" />
+        </div>
       </div>
     </div>
   );
