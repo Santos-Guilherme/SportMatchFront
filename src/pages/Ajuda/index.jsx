@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../../components/Header';
-import './index.scss';
 import Footer from '../../components/Footer';
+import './index.scss';
 
 export default function Ajuda() {
     const [activeCategory, setActiveCategory] = useState('Jogadores');
@@ -38,11 +38,11 @@ export default function Ajuda() {
         ]
     };
 
-    const renderButtons = () => (
+    const renderCategoryButtons = () => (
         <div className="category-buttons">
-            {Object.keys(faqData).map((category, index) => (
+            {Object.keys(faqData).map((category) => (
                 <button
-                    key={index}
+                    key={category}
                     onClick={() => setActiveCategory(category)}
                     className={activeCategory === category ? 'active' : ''}
                 >
@@ -54,22 +54,18 @@ export default function Ajuda() {
 
     return (
         <div className="Ajuda">
-            <header>
-                <Header />
-            </header>
+            <Header />
             <section className="secao1">
-                <div className="texto-secao1">
-                    <h2>Como Podemos Ajudar?</h2>
-                </div>
+                <h2>Como Podemos Ajudar?</h2>
             </section>
             <section className="faq-secao">
-                {renderButtons()}
+                {renderCategoryButtons()}
                 <div className="faq-categoria">
-                    <h3>{activeCategory}</h3>
                     {faqData[activeCategory].map((faq, index) => (
                         <div key={index} className="faq-item">
                             <button className="faq-question" onClick={() => toggleAnswer(index)}>
                                 {faq.question}
+                                <span className={`flecha ${activeQuestion === index ? 'rodar' : ''}`}>▼</span>
                             </button>
                             {activeQuestion === index && (
                                 <div className="faq-answer">
@@ -80,9 +76,7 @@ export default function Ajuda() {
                     ))}
                 </div>
             </section>
-            <footer>
-                <Footer />
-            </footer>
+            <Footer />
         </div>
     );
 }
