@@ -1,41 +1,30 @@
-// src/pages/Partidas/index.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header';
 import PartidaCard from '../../components/PartidaCard';
 import Footer from '../../components/Footer';
+import { buscarPartidasDisponiveis, participarPartida, sairPartida } from '../../Api/PartidasApi';
 import './index.scss';
 
 export default function Partidas() {
   const [filtroEsporte, setFiltroEsporte] = useState("");
-
-  const partidas = [
-    {
-      nome: "Partida Futebol",
-      esporte: "Futebol",
-      maxJogadores: 10,
-      jogadoresAtuais: 5,
-      data: "2024-12-01",
-      hora: "15:00",
-      endereco: "Rua das Palmeiras, 123",
-      quadra: "Quadra 1",
-      organizadorImagem: "/assets/images/user1.png",
-    },
-    {
-      nome: "Partida Basquete",
-      esporte: "Basquete",
-      maxJogadores: 6,
-      jogadoresAtuais: 3,
-      data: "2024-12-02",
-      hora: "18:00",
-      endereco: "Avenida Central, 45",
-      quadra: "Quadra 2",
-      organizadorImagem: "/assets/images/user2.png",
-    },
-  ];
+  const [partidas, setPartidas] = useState([]);
 
   const handleFiltroEsporte = (esporte) => {
     setFiltroEsporte(esporte);
   };
+
+  const carregarPartidas = async () => {
+    try {
+      const response = await buscarPartidasDisponiveis(); // Busca as partidas disponíveis
+      setPartidas(response);
+    } catch (error) {
+      console.error("Erro ao carregar partidas:", error);
+    }
+  };
+
+  useEffect(() => {
+    carregarPartidas();
+  }, []);
 
   return (
     <div className="PartidasPage">
@@ -59,7 +48,12 @@ export default function Partidas() {
               return filtroEsporte ? partida.esporte === filtroEsporte : true;
             })
             .map((partida, index) => (
-              <PartidaCard key={index} partida={partida} />
+              <PartidaCard
+                key={index}
+                partida={partida}
+                participarPartida={participarPartida}
+                sairPartida={sairPartida}
+              />
             ))}
         </section>
       </section>

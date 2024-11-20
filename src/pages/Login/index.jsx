@@ -16,8 +16,11 @@ export default function Login() {
       const response = await loginUser(credenciais);
       console.log('Login realizado com sucesso:', response);
 
-      // Redirecionar após login bem-sucedido
+      if(response.tipoUsuario == 1)
       navigate('/dashboard'); // Ajuste o caminho conforme necessário
+
+      else
+      navigate('/teste')
     } catch (err) {
       setError('Falha ao fazer login. Verifique suas credenciais.');
       console.error(err);

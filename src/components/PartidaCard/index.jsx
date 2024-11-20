@@ -1,12 +1,34 @@
-// src/components/PartidaCard/index.jsx
-import React from "react";
+import React, { useState } from "react";
 import "./index.scss";
 
-export default function PartidaCard({ partida }) {
+export default function PartidaCard({ partida, participarPartida, sairPartida }) {
+  const [estaParticipando, setEstaParticipando] = useState(false);
+
+  const handleParticipar = async () => {
+    try {
+      await participarPartida(partida.idPartida); // Chamada da API para participar
+      setEstaParticipando(true);
+      alert("Você entrou na partida com sucesso!");
+    } catch (error) {
+      console.error("Erro ao participar da partida:", error);
+      alert("Erro ao entrar na partida. Tente novamente.");
+    }
+  };
+
+  const handleSair = async () => {
+    try {
+      await sairPartida(partida.idPartida); // Chamada da API para sair
+      setEstaParticipando(false);
+      alert("Você saiu da partida com sucesso!");
+    } catch (error) {
+      console.error("Erro ao sair da partida:", error);
+      alert("Erro ao sair da partida. Tente novamente.");
+    }
+  };
+
   return (
     <div className="PartidaCard">
       <div className="detalhes">
-        {/* Imagem do organizador antes das informações */}
         <img
           src={partida.organizadorImagem}
           alt="Organizador"
@@ -29,10 +51,15 @@ export default function PartidaCard({ partida }) {
           <p>Endereço: {partida.endereco}</p>
           <p>Quadra: {partida.quadra}</p>
         </div>
-        {/* Botão para participar */}
-        <button className="participar-btn">
-          Participar da Partida
-        </button>
+        {estaParticipando ? (
+          <button className="sair-btn" onClick={handleSair}>
+            Sair da Partida
+          </button>
+        ) : (
+          <button className="participar-btn" onClick={handleParticipar}>
+            Participar da Partida
+          </button>
+        )}
       </div>
     </div>
   );
