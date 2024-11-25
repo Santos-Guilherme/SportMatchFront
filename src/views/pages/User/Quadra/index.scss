@@ -1,0 +1,39 @@
+.quadras {
+    .buttonContent{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .add-button {
+        margin-bottom: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        left: 100%;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+
+    .quadra-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 500px;
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+
+        &::backdrop {
+            background: rgba(0, 0, 0, 0.5);
+        }
+    }
+}

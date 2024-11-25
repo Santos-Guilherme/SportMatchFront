@@ -1,40 +1,49 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import Login from './pages/Login'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import './styles/style.scss';
-import Home from './pages/Home';
-import Ajuda from './pages/Ajuda';
-import Partidas from './pages/Partidas';
-import Quadras from './pages/Quadras';
-import Sobre from './pages/Sobre';
-import PaginaAluguelQuadras from './pages/PaginaAluguelQuadras';
-import Registro from './pages/Registro';
-import PoliticaDePrivacidade from './pages/PoliticaDePrivacidade';
-import TermosDeUso from './pages/TermosDeUso';
-import Explorar from './pages/Explorar';
-import EsqueceuSenha from './pages/EsqueceuSenha';
 
+import Home from './views/pages/Home';
+import Partidas from './views/pages/Partidas';
+import Login from './views/pages/Login';
+import Quadras from './views/pages/User/Quadra';
+import Header from './views/components/Header';
+import { AuthProvider } from './contexts/AuthContext';
+import Sobre from './views/pages/Sobre';
+import Ajuda from './views/pages/Ajuda';
+import PoliticaDePrivacidade from './views/pages/PoliticaDePrivacidade';
+import TermosDeUso from './views/pages/TermosDeUso';
+import Footer from './views/components/Footer';
+import Registro from './views/pages/Registro';
 
+const App = () => {
+    return (
+        <AuthProvider>
+            <Router>
+                <Header />
+                <div className="container">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/partidas" element={<Partidas />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/sobre" element={<Sobre />} />
+                        <Route path="/ajuda" element={<Ajuda />} />
+                        <Route path="/quadras" element={<Quadras />} />
+                        <Route path="/politica" element={<PoliticaDePrivacidade />} />
+                        <Route path="/termos" element={<TermosDeUso />} />
+                        <Route path="/registro" element={<Registro />} />
+                    </Routes>
+                </div>
+                <Footer />
+            </Router>
+        </AuthProvider>
+    );
+};
 
+// Renderização da aplicação
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path = '/' element = {<Home/>}/>
-        <Route path = '/login' element = {<Login/>}/>
-        <Route path='/ajuda' element ={<Ajuda/>}/>
-        <Route path='/partida' element ={<Partidas/>}/>
-        <Route path='/quadra' element ={<Quadras/>}/>
-        <Route path='/sobre' element ={<Sobre/>}/>
-        <Route path='/alugar' element ={<PaginaAluguelQuadras/>}/>
-        <Route path="/registro" element={<Registro />} />
-        <Route path="/esqueceu_senha" element={<EsqueceuSenha />} />
-        <Route path="/termos" element={<TermosDeUso />} />
-        <Route path="/explorar" element={<Explorar />} />
-        <Route path="/politica" element={<PoliticaDePrivacidade />} />
-      </Routes>
-
-    </BrowserRouter>
-  </StrictMode>,
-)
+    <StrictMode>
+        <App />
+    </StrictMode>
+);

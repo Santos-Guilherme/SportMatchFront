@@ -1,0 +1,178 @@
+.Home {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Khula', sans-serif;
+
+    .home-banner {
+        text-align: center;
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+    }
+
+    .home-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 2rem 0;
+
+        .home-card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: #333;
+            width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+
+            h2 {
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+                color: #666;
+            }
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+
+    .secao2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 40px 20px;
+
+        h2 {
+            font-family: 'LondrinaSolid-Regular';
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .esportes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            width: 100%;
+
+            .esporte {
+                background-size: cover;
+                background-position: center;
+                flex: 1 1 calc(33.33% - 20px);
+                max-width: calc(33.33% - 20px);
+                height: 200px;
+                border-radius: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+
+                p {
+                    font-family: 'Khula-SemiBold';
+                    color: #fff;
+                    font-size: 1.2rem;
+                    text-transform: uppercase;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+                }
+            }
+
+            /* Ajuste das imagens dos esportes */
+            .esporte:nth-child(1) {
+                background-image: url('../../../../public/assets/images/futebol.png');
+            }
+
+            .esporte:nth-child(2) {
+                background-image: url('../../../../public/assets/images/basquete.png');
+            }
+
+            .esporte:nth-child(3) {
+                background-image: url('../../../../public/assets/images/volei.png');
+            }
+
+            .esporte:nth-child(4) {
+                background-image: url('../../../../public/assets/images/handebol.png');
+            }
+
+            @media (max-width: 1024px) {
+                .esportes-container {
+                    .esporte {
+                        flex: 1 1 calc(50% - 20px);
+                        max-width: calc(50% - 20px);
+                    }
+                }
+            }
+
+            @media (max-width: 768px) {
+                .esportes-container {
+                    flex-direction: column;
+
+                    .esporte {
+                        flex: 1 1 100%;
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .secao3 {
+        background-color: #f4f4f4;
+        padding: 40px 20px;
+        text-align: center;
+
+        h2 {
+            font-family: 'LondrinaSolid-Regular';
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        div {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+
+            div {
+                width: 280px;
+                text-align: center;
+
+                img {
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin-bottom: 15px;
+                }
+
+                p {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
