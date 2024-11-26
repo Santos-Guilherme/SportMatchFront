@@ -16,8 +16,8 @@ const Partidas = () => {
     const [selectedQuadra, setSelectedQuadra] = useState(null); // Quadra selecionada para criar partida
     const [isModalOpen, setIsModalOpen] = useState(false); // Controle do modal de criação de partida
 
-    // Busca as partidas
     const fetchPartidas = async () => {
+        setLoading(true);
         try {
             const response = await listPartidas();
             setPartidas(response);
@@ -28,8 +28,8 @@ const Partidas = () => {
         }
     };
 
-    // Busca as quadras
     const fetchQuadras = async () => {
+        setLoading(true);
         try {
             const response = await listQuadras();
             setQuadras(response);
@@ -40,9 +40,7 @@ const Partidas = () => {
         }
     };
 
-    // Executa a busca inicial com base na aba ativa
     useEffect(() => {
-        setLoading(true);
         if (activeTab === 'partidas') {
             fetchPartidas();
         } else {
@@ -62,7 +60,6 @@ const Partidas = () => {
 
     return (
         <div className="partidas">
-            {/* Navegação por abas */}
             <div className="tabs">
                 <button
                     className={`tab ${activeTab === 'partidas' ? 'active' : ''}`}
@@ -78,7 +75,6 @@ const Partidas = () => {
                 </button>
             </div>
 
-            {/* Conteúdo da aba */}
             <div className="tab-content">
                 {loading ? (
                     <p>Carregando...</p>

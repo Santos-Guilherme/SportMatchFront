@@ -54,3 +54,19 @@ export const listParticipantesByPartida = async (id_partida) => {
     if (!id_partida) throw new Error('ID da partida é obrigatório');
     return await PartidaModel.listParticipantesByPartida(id_partida);
 };
+
+// Listar partidas de um administrador
+export const listPartidasByAdmin = async (id_administrador) => {
+    if (!id_administrador) {
+        throw new Error('ID do administrador é obrigatório');
+    }
+    return await PartidaModel.listPartidasByAdmin(id_administrador);
+};
+
+// Atualizar status da partida
+export const updatePartidaStatus = async (id_partida, status) => {
+    if (!id_partida || !status) {
+        throw new Error('ID da partida e status são obrigatórios');
+    }
+    return await PartidaModel.updatePartidaStatus(id_partida, status);
+};

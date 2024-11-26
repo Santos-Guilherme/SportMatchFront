@@ -87,3 +87,24 @@ export const listParticipantesByPartida = async (id_partida) => {
         throw getErrorMessage(error, 'Erro ao listar participantes da partida');
     }
 };
+
+
+export const listPartidasByAdmin = async (id_administrador) => {
+    try {
+        const response = await apiClient.get(`/partidas/admin`, {
+            params: { id_administrador },
+        });
+        return response.data;
+    } catch (error) {
+        throw getErrorMessage(error, 'Erro ao listar partidas do administrador');
+    }
+};
+
+// Atualizar status da partida
+export const updatePartidaStatus = async (id_partida, status) => {
+    try {
+        await apiClient.put(`/partidas/status`, {id_partida, status });
+    } catch (error) {
+        throw getErrorMessage(error, 'Erro ao atualizar status da partida');
+    }
+};

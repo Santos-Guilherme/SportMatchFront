@@ -16,6 +16,7 @@ import PoliticaDePrivacidade from './views/pages/PoliticaDePrivacidade';
 import TermosDeUso from './views/pages/TermosDeUso';
 import Footer from './views/components/Footer';
 import Registro from './views/pages/Registro';
+import AdminPartidas from './views/pages/User/AdminPartidas';
 
 const App = () => {
     return (
@@ -26,6 +27,7 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/partidas" element={<Partidas />} />
+                        <Route path="/partidasadmin" element={<AdminPartidas />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/sobre" element={<Sobre />} />
                         <Route path="/ajuda" element={<Ajuda />} />
