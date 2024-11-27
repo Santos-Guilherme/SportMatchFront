@@ -17,6 +17,7 @@ import TermosDeUso from './views/pages/TermosDeUso';
 import Footer from './views/components/Footer';
 import Registro from './views/pages/Registro';
 import AdminPartidas from './views/pages/User/AdminPartidas';
+import DashboardAdmin from './views/pages/DashboardAdmin';
 
 const App = () => {
     return (
@@ -35,6 +36,7 @@ const App = () => {
                         <Route path="/politica" element={<PoliticaDePrivacidade />} />
                         <Route path="/termos" element={<TermosDeUso />} />
                         <Route path="/registro" element={<Registro />} />
+                        <Route path="/dashboard" element={<DashboardAdmin />} />
                     </Routes>
                 </div>
                 <Footer />

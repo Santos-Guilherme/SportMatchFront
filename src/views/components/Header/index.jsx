@@ -7,8 +7,8 @@ const Header = () => {
     const { user, logout } = useAuth();
 
     const handleLogout = () => {
-        logout(); // Remove o usuário do contexto e do localStorage
-        window.location.href = '/login'; // Redireciona para a página de login
+        logout();
+        window.location.href = '/login'; 
     };
 
     const toggleMenu = () => {
@@ -28,8 +28,17 @@ const Header = () => {
             </div>
             <nav className="container links">
                 <Link to="/explorar">Explorar</Link>
-                <Link to="/partidas">Partidas</Link>
-                <Link to="/quadras">Quadra</Link>
+                {user?.tipo === 'administrador' ? (
+                    <>
+                        <Link to="/partidas-admin">Partidas Admin</Link>
+                        <Link to="/minhas-quadras">Minhas Quadras</Link>
+                    </>
+                ) : (
+                    <>
+                        <Link to="/partidas">Partidas</Link>
+                        <Link to="/quadras">Quadras</Link>
+                    </>
+                )}
                 <Link to="/ajuda">Ajuda</Link>
                 <Link to="/sobre">Sobre</Link>
             </nav>
@@ -60,8 +69,17 @@ const Header = () => {
             <div className="mobile-menu">
                 <ul>
                     <li><Link to="/explorar">Explorar</Link></li>
-                    <li><Link to="/partidas">Partidas</Link></li>
-                    <li><Link to="/quadra">Quadra</Link></li>
+                    {user?.tipo === 'administrador' ? (
+                        <>
+                            <li><Link to="/partidas-admin">Partidas Admin</Link></li>
+                            <li><Link to="/minhas-quadras">Minhas Quadras</Link></li>
+                        </>
+                    ) : (
+                        <>
+                            <li><Link to="/partidas">Partidas</Link></li>
+                            <li><Link to="/quadras">Quadras</Link></li>
+                        </>
+                    )}
                     <li><Link to="/ajuda">Ajuda</Link></li>
                     <li><Link to="/sobre">Sobre</Link></li>
                 </ul>
