@@ -13,9 +13,19 @@ export const addAvaliacao = async (avaliacao) => {
 };
 
 // Atualizar avaliação
+/*
 export const updateAvaliacao = async (id, nota, comentario) => {
     try {
         await axios.put(`${API_ADDRESS}/avaliacoes/${id}`, { nota, comentario });
+    } catch (error) {
+        throw getErrorMessage(error, 'Erro ao atualizar avaliação');
+    }
+};
+*/
+
+export const updateAvaliacao = async (id, avaliacao) => {
+    try {
+        await axios.put(`${API_ADDRESS}/avaliacoes/${id}`, avaliacao);
     } catch (error) {
         throw getErrorMessage(error, 'Erro ao atualizar avaliação');
     }
