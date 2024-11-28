@@ -70,3 +70,11 @@ export const updatePartidaStatus = async (id_partida, status) => {
     }
     return await PartidaModel.updatePartidaStatus(id_partida, status);
 };
+
+// Listar partidas participadas pelo usuário
+export const listPartidasParticipadasByUser = async (id_usuario) => {
+    if (!id_usuario) {
+        throw new Error('ID do usuário é obrigatório');
+    }
+    return await PartidaModel.listPartidasParticipadasByUser(id_usuario);
+};

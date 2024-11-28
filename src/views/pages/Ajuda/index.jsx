@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './index.scss';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 export default function Ajuda() {
     const [activeCategory, setActiveCategory] = useState('Jogadores');
@@ -52,27 +54,32 @@ export default function Ajuda() {
 
     return (
         <div className="Ajuda">
-            <section className="secao1">
-                <h2>Como Podemos Ajudar?</h2>
-            </section>
-            <section className="faq-secao">
-                {renderCategoryButtons()}
-                <div className="faq-categoria">
-                    {faqData[activeCategory].map((faq, index) => (
-                        <div key={index} className="faq-item">
-                            <button className="faq-question" onClick={() => toggleAnswer(index)}>
-                                {faq.question}
-                                <span className={`flecha ${activeQuestion === index ? 'rodar' : ''}`}>▼</span>
-                            </button>
-                            {activeQuestion === index && (
-                                <div className="faq-answer">
-                                    <p>{faq.answer}</p>
-                                </div>
-                            )}
-                        </div>
-                    ))}
-                </div>
-            </section>
+            <Header></Header>
+            <div className='Ajuda-content'>
+                <section className="secao1">
+                    <h2>Como Podemos Ajudar?</h2>
+                    <p>Escolha uma categoria abaixo para explorar nossas perguntas frequentes.</p>
+                </section>
+                <section className="faq-secao">
+                    {renderCategoryButtons()}
+                    <div className="faq-categoria">
+                        {faqData[activeCategory].map((faq, index) => (
+                            <div key={index} className="faq-item">
+                                <button className="faq-question" onClick={() => toggleAnswer(index)}>
+                                    {faq.question}
+                                    <span className={`flecha ${activeQuestion === index ? 'rodar' : ''}`}>▼</span>
+                                </button>
+                                {activeQuestion === index && (
+                                    <div className="faq-answer">
+                                        <p>{faq.answer}</p>
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            </div>
+            <Footer></Footer>
         </div>
     );
 }

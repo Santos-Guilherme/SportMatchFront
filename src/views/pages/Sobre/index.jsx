@@ -6,6 +6,7 @@ import Footer from '../../components/Footer';
 export default function Sobre() {
     return (
         <div className='Sobre'>
+            <Header></Header>
             <section className='secao1'>
                 <h1>Sobre</h1>
             </section>
@@ -29,6 +30,7 @@ export default function Sobre() {
                     <p>Seja bem-vindo à nossa jornada. A Gamp3r é feita para inovar e melhorar a forma como organizamos nossas atividades cotidianas. Junte-se a nós e descubra como a tecnologia pode transformar a sua experiência esportiva com a Sportsmatch.</p>
                 </div>
             </section>
+            <Footer></Footer>
         </div>
     );
 }

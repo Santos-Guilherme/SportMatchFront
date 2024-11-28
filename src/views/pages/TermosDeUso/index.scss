@@ -1,12 +1,17 @@
 .TermosDeUso {
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
     min-height: 100vh;
     background-color: #fff;
     color: #AE00FF;
     font-family: 'Khula-Regular', sans-serif;
+
+    .TermosDeUso-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
     .secao1 {
         width: 100%;

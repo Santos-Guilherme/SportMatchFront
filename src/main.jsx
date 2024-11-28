@@ -8,22 +8,20 @@ import Home from './views/pages/Home';
 import Partidas from './views/pages/Partidas';
 import Login from './views/pages/Login';
 import Quadras from './views/pages/User/Quadra';
-import Header from './views/components/Header';
 import { AuthProvider } from './contexts/AuthContext';
 import Sobre from './views/pages/Sobre';
 import Ajuda from './views/pages/Ajuda';
 import PoliticaDePrivacidade from './views/pages/PoliticaDePrivacidade';
 import TermosDeUso from './views/pages/TermosDeUso';
-import Footer from './views/components/Footer';
 import Registro from './views/pages/Registro';
 import AdminPartidas from './views/pages/User/AdminPartidas';
 import DashboardAdmin from './views/pages/DashboardAdmin';
+import MinhasPartidas from './views/pages/MinhasPartidas';
 
 const App = () => {
     return (
         <AuthProvider>
             <Router>
-                <Header />
                 <div className="container">
                     <Routes>
                         <Route path="/" element={<Home />} />
@@ -35,11 +33,11 @@ const App = () => {
                         <Route path="/quadras" element={<Quadras />} />
                         <Route path="/politica" element={<PoliticaDePrivacidade />} />
                         <Route path="/termos" element={<TermosDeUso />} />
-                        <Route path="/registro" element={<Registro />} />
+                        <Route path="/cadastro" element={<Registro />} />
                         <Route path="/dashboard" element={<DashboardAdmin />} />
+                        <Route path="/minhas-partidas" element={<MinhasPartidas />} />
                     </Routes>
                 </div>
-                <Footer />
             </Router>
         </AuthProvider>
     );

@@ -1,0 +1,121 @@
+.HeaderLogged {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: #fff;
+
+    .logo-container img {
+        width: 150px;
+    }
+
+    .links {
+        display: flex;
+        gap: 2rem;
+        align-items: center; /* Centraliza verticalmente os links */
+        margin-left: auto; /* Empurra os links para a direita */
+
+        a {
+            text-decoration: none;
+            font-family: 'LondrinaSolid-Regular';
+            color: #fff;
+            font-size: 1rem;
+            padding: 0.5rem 0; /* Melhora o espaço clicável */
+            transition: color 0.3s;
+
+            &:hover {
+                color: #ddd;
+            }
+        }
+    }
+
+    .auth-actions {
+        display: flex;
+        gap: 1rem;
+
+        .auth-button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            background-color: transparent;
+            color: #fff;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: #fff;
+                color: var(--primary-color);
+            }
+        }
+    }
+
+    .profile-container {
+        position: relative;
+        margin-left: 2rem; /* Espaçamento entre o avatar e os links */
+
+        .profile {
+            cursor: pointer;
+            display: flex;
+            align-items: center; /* Alinha verticalmente o avatar */
+
+            .profile-avatar {
+                width: 45px; /* Ajusta para tamanho padrão */
+                height: 45px;
+                border-radius: 50%; /* Garante que seja perfeitamente redonda */
+                border: 2px solid #fff;
+                object-fit: cover; /* Garante que a imagem se ajuste ao círculo */
+            }
+        }
+
+        .profile-menu {
+            position: absolute;
+            top: 60px; /* Ajusta a distância entre o menu e o avatar */
+            right: 0;
+            background: #fff;
+            color: var(--primary-color);
+            border-radius: 10px; /* Torna o menu mais arredondado */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+            padding: 0.3rem;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+
+            a, button {
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                color: var(--primary-color);
+                text-decoration: none;
+                font-size: 0.95rem;
+                padding: 0.5rem;
+                border-radius: 5px; /* Adiciona uma leve curva para os itens */
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: var(--primary-color);
+                    color: #fff;
+                }
+            }
+
+            button {
+                background: transparent;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .links {
+            display: none;
+        }
+
+        .mobile-menu {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

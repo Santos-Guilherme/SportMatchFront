@@ -6,6 +6,7 @@ import CardQuadra from '../../components/CardQuadra';
 import { listPartidas } from '../../../api/partidaModel';
 import { useAuth } from '../../../contexts/AuthContext';
 import PartidaForm from '../../components/PartidaForm';
+import HeaderLogged from '../../components/HeaderLogged';
 
 const Partidas = () => {
     const { user } = useAuth(); // Usuário logado
@@ -60,6 +61,7 @@ const Partidas = () => {
 
     return (
         <div className="partidas">
+            <HeaderLogged></HeaderLogged>
             <div className="tabs">
                 <button
                     className={`tab ${activeTab === 'partidas' ? 'active' : ''}`}

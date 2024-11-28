@@ -108,3 +108,13 @@ export const updatePartidaStatus = async (id_partida, status) => {
         throw getErrorMessage(error, 'Erro ao atualizar status da partida');
     }
 };
+
+// Listar partidas participadas por um usuário
+export const listPartidasParticipadasByUser = async (id_usuario) => {
+    try {
+        const response = await apiClient.get(`/partidas/participadas/${id_usuario}`);
+        return response.data;
+    } catch (error) {
+        throw getErrorMessage(error, 'Erro ao listar partidas participadas pelo usuário');
+    }
+};
