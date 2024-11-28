@@ -1,0 +1,51 @@
+.QuadraCard {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    transition: transform 0.3s;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+
+    .quadra-imagem {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .quadra-detalhes {
+        text-align: center;
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        p {
+            font-size: 1rem;
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .criar-partida-btn {
+            margin-top: 10px;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: #9200cc;
+            }
+        }
+    }
+}

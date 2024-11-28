@@ -1,29 +1,27 @@
+.Partidas {
+    background-color: #f9f9f9;
 
+    .partidas-section {
+        text-align: center;
 
-.tabs {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
+        h1 {
+            padding: 20px;
+            font-family: 'Khula-Bold';
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
 
-.tab {
-    padding: 0.5rem 1rem;
-    border: none;
-    background-color: #eee;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
+        .loading,
+        .no-partidas {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+        }
 
-.tab.active {
-    background-color: #333;
-    color: white;
-}
-
-.tab:hover {
-    background-color: #ddd;
-}
-
-.tab-content {
-    margin-top: 1rem;
+        .partidas-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+    }
 }

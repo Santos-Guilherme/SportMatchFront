@@ -3,11 +3,10 @@
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
-    background-color: #fff;
-    color: #AE00FF;
+    background-color: #f9f9f9; // Fundo neutro claro
     font-family: 'Khula-Regular', sans-serif;
 
-    .TermosDeUso-content{
+    .TermosDeUso-content {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -18,49 +17,102 @@
         text-align: center;
         background-color: #AE00FF;
         color: #fff;
-        padding: 40px 0;
+        padding: 50px 20px;
 
         h1 {
-            font-size: 48px;
-            font-weight: 400;
-            font-family: 'Khula-Bold';
+            font-size: 3rem;
+            font-family: 'Khula-Bold', sans-serif;
+            margin: 0;
         }
     }
 
     .secao2 {
         width: 100%;
-        max-width: 800px;
-        margin: 20px 0;
-        padding: 20px;
+        max-width: 900px; // Limita a largura máxima para telas maiores
         background-color: #fff;
-        color: #AE00FF;
         border: 2px solid #AE00FF;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin: 20px 0;
+        color: #333;
 
         div {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
 
             h2 {
-                font-size: 24px;
-                margin-bottom: 10px;
+                font-size: 1.8rem;
+                margin-bottom: 15px;
                 color: #AE00FF;
+                font-family: 'Londrina-Bold', sans-serif;
             }
 
             p {
-                font-size: 16px;
-                line-height: 1.6;
+                font-size: 1rem;
+                line-height: 1.8;
+                text-align: justify; // Justifica o texto para uma aparência mais limpa
+                margin-bottom: 15px;
                 color: #333;
             }
 
             ul {
-                margin: 10px 0 0 20px;
+                margin: 15px 0 0 20px;
                 padding: 0;
                 list-style-type: disc;
-                color: #333;
 
                 li {
-                    margin-bottom: 5px;
+                    font-size: 1rem;
+                    line-height: 1.6;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+
+    // Responsividade
+    @media (max-width: 768px) {
+        .secao1 {
+            padding: 40px 15px;
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .secao2 {
+            padding: 20px;
+
+            div {
+                h2 {
+                    font-size: 1.6rem;
+                }
+
+                p, li {
+                    font-size: 0.95rem;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .secao1 {
+            padding: 30px 10px;
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .secao2 {
+            padding: 15px;
+
+            div {
+                h2 {
+                    font-size: 1.4rem;
+                }
+
+                p, li {
+                    font-size: 0.9rem;
                 }
             }
         }

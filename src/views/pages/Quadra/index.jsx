@@ -5,12 +5,12 @@ import {
     deleteQuadra,
     listQuadrasByAdmin,
     updateQuadra,
-} from '../../../../controllers/quadraController';
-import QuadraForm from '../../../components/QuadraForm';
-import AdminCardQuadra from '../../../components/AdminCardQuadra';
-import { useAuth } from '../../../../contexts/AuthContext.jsx';
+} from '../../../controllers/quadraController.jsx';
+import QuadraForm from '../../components/QuadraForm/index.jsx';
+import AdminCardQuadra from '../../components/AdminCardQuadra/index.jsx';
+import { useAuth } from '../../../contexts/AuthContext.jsx';
 
-const Quadras = () => {
+const Quadra = () => {
     const { user, token } = useAuth(); // Obtém o usuário logado e o token do contexto
     const [quadras, setQuadras] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -127,4 +127,4 @@ const Quadras = () => {
     );
 };
 
-export default Quadras;
+export default Quadra;

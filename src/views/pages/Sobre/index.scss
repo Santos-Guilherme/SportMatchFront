@@ -3,10 +3,8 @@
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
-    align-items: center;
-    background-color: #ffffff;
-    color: #ffffff;
-    
+    background-color: #f9f9f9; // Fundo claro para contraste
+    color: #333; // Texto padrão mais escuro para legibilidade
 
     .secao1 {
         width: 100%;
@@ -14,45 +12,110 @@
         text-align: center;
         align-items: center;
         justify-content: center;
-        padding: 40px 0;
+        padding: 50px 20px;
         background-color: #AE00FF;
-        color: #ffffff;
+        color: #fff;
 
         h1 {
-            font-size: 48px;
-            font-weight: 400;
+            font-size: 3rem;
+            font-weight: 700;
             font-family: 'LondrinaSolid-Regular';
+            margin: 0;
         }
     }
 
-
-    .conteudo {
-        width: 100%;
+    .Sobre-content {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
 
-        p{
-            font-family: 'Khula-regular';
+    .conteudo {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 100%;
+        max-width: 1200px; // Limita a largura máxima para telas maiores
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        p {
+            font-family: 'Khula-Regular', sans-serif;
         }
 
         .paragrafo {
-            width: 60%;
-            margin: 10px 0;
+            width: 100%;
+            max-width: 800px; // Limita a largura do texto para melhor legibilidade
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            }
 
             &:nth-child(odd) {
-                background-color: #973cc1;
+                background-color: #F3E1F8; // Suaviza o contraste
+                color: #333; // Texto escuro
             }
 
             &:nth-child(even) {
-                background-color: #AE00FF;
+                background-color: #E9D4F4; // Suaviza o contraste
+                color: #333;
             }
 
             p {
-                font-size: 18px;
-                line-height: 1.6;
+                font-size: 1rem;
+                line-height: 1.8;
+                text-align: justify; // Justifica o texto para um visual mais profissional
+                margin: 0;
+            }
+        }
+    }
+
+    // Responsividade
+    @media (max-width: 768px) {
+        .secao1 {
+            padding: 30px 15px;
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .conteudo {
+            gap: 15px;
+
+            .paragrafo {
+                max-width: 100%;
+                padding: 15px;
+
+                p {
+                    font-size: 0.95rem;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .secao1 {
+            padding: 20px 10px;
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .conteudo {
+            .paragrafo {
+                padding: 10px;
+
+                p {
+                    font-size: 0.9rem;
+                }
             }
         }
     }

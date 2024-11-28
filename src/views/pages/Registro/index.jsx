@@ -35,14 +35,9 @@ export default function Registro() {
             setError('As senhas não coincidem.');
             return;
         }
-
-        try {
             await registerUser(formData);
             setSuccess('Cadastro realizado com sucesso!');
             navigate('/login');
-        } catch (err) {
-            setError('Erro ao registrar. Verifique os dados.');
-        }
     };
 
     return (

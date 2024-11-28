@@ -4,7 +4,7 @@ import { useAuth } from '../../../contexts/AuthContext';
 import PartidasPorQuadraChart from '../../components/PartidasPorQuadraChart';
 import { listPartidasByAdmin, updatePartidaStatus } from '../../../controllers/partidaController';
 import { listQuadrasByAdmin } from '../../../controllers/quadraController';
-import Quadras from '../User/Quadra';
+import Quadras from '../Quadra';
 
 const DashboardAdmin = () => {
     const { user, logout } = useAuth();

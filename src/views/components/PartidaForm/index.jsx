@@ -1,73 +1,58 @@
-import React, { useState } from 'react';
-import './index.scss';
-import { createPartida } from '../../../controllers/partidaController';
+import React, { useState } from "react";
+import "./index.scss";
+import { createPartida } from "../../../controllers/partidaController"; // Função para criar partida
+import { useAuth } from "../../../contexts/AuthContext"; // Para obter o usuário logado
 
-const PartidaForm = ({ quadra, userId, onClose }) => {
-    const [dataHorario, setDataHorario] = useState('');
-    const [maxJogadores, setMaxJogadores] = useState(10); // Valor padrão
-    const [error, setError] = useState('');
+export default function PartidaForm({ quadra, onClose }) {
+    const { user } = useAuth(); // Obtém o usuário logado
+    const [data, setData] = useState("");
+    const [maxJogadores, setMaxJogadores] = useState(10);
+    const [error, setError] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            // Dados para criação da partida
-            const partidaData = {
-                id_quadra: quadra?.id_quadra, // Garantindo que `quadra` está disponível
-                id_criador: userId, // Certifique-se de que `userId` está sendo passado
-                data_horario: dataHorario,
-                max_jogadores: Number(maxJogadores),
-                status: 'pendente',
-            };
+            await createPartida({
+                id_quadra: quadra.id_quadra,
+                id_criador: user.id_usuario, // ID do criador obtido do contexto do usuário
+                data_horario: data,
+                max_jogadores: maxJogadores,
+                status: "pendente", // Status inicial da partida
+            });
 
-            console.log('Enviando dados ao servidor:', partidaData);
-
-            if (!partidaData.id_quadra || !partidaData.id_criador) {
-                throw new Error('ID da quadra ou do criador não está definido.');
-            }
-
-            // Chama a função para criar a partida
-            await createPartida(partidaData);
-
-            // Fecha o modal após sucesso
-            onClose();
+            alert("Partida criada com sucesso!");
+            onClose(); // Fecha o modal após sucesso
         } catch (err) {
-            console.error('Erro ao criar partida:', err.message || err);
-            setError('Erro ao criar partida. Verifique os campos e tente novamente.');
+            console.error("Erro ao criar partida:", err.message);
+            setError(err.message || "Erro ao criar partida.");
         }
     };
 
     return (
-        <div className="partida-form-modal">
-            <h2>Criar Partida em {quadra?.nome || 'Quadra Desconhecida'}</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Data e Horário:
-                    <input
-                        type="datetime-local"
-                        value={dataHorario}
-                        onChange={(e) => setDataHorario(e.target.value)}
-                        required
-                    />
-                </label>
-                <label>
-                    Máximo de Jogadores:
-                    <input
-                        type="number"
-                        value={maxJogadores}
-                        onChange={(e) => setMaxJogadores(e.target.value)}
-                        min="1"
-                        required
-                    />
-                </label>
-                {error && <p className="error">{error}</p>}
-                <div className="form-actions">
-                    <button type="submit">Criar</button>
-                    <button type="button" onClick={onClose}>Cancelar</button>
-                </div>
-            </form>
-        </div>
+        <form className="PartidaForm" onSubmit={handleSubmit}>
+            <h3>Criar Partida em {quadra.nome}</h3>
+            {error && <p className="error-message">{error}</p>}
+            <label>
+                Data e Horário:
+                <input
+                    type="datetime-local"
+                    value={data}
+                    onChange={(e) => setData(e.target.value)}
+                    required
+                />
+            </label>
+            <label>
+                Máx. Jogadores:
+                <input
+                    type="number"
+                    value={maxJogadores}
+                    onChange={(e) => setMaxJogadores(Number(e.target.value))}
+                    min="1"
+                    required
+                />
+            </label>
+            <button type="submit" className="submit-btn">Criar</button>
+        </form>
     );
-};
-
-export default PartidaForm;
+}

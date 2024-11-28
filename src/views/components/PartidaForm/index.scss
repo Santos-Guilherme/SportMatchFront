@@ -1,0 +1,55 @@
+.PartidaForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: 'Khula-Regular', sans-serif;
+
+    h3 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-align: center;
+    }
+
+    label {
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+        color: #333;
+
+        input {
+            margin-top: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+
+            &:focus {
+                border-color: var(--primary-color);
+            }
+        }
+    }
+
+    .submit-btn {
+        padding: 10px 20px;
+        background-color: var(--primary-color);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: #9200cc;
+        }
+    }
+
+    .error-message {
+        color: #db504a;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+}

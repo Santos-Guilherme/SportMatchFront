@@ -45,7 +45,7 @@ const Header = () => {
                 ) : (
                     <div className="profile-container">
                         <div className="profile" onClick={() => setProfileMenuOpen(!profileMenuOpen)}>
-                            <img src={user.foto_perfil || '/default-avatar.png'} alt="Perfil" className="profile-avatar" />
+                            <img src={user.foto_perfil || '/assets/images/default-avatar.png'} alt="Perfil" className="profile-avatar" />
                         </div>
                         {profileMenuOpen && (
                             <div className="profile-menu">

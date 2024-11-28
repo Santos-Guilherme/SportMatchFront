@@ -32,12 +32,6 @@ export const removeParticipante = async (id) => {
 
 // Listar participantes por partida
 export const listParticipantes = async (id_partida) => {
-    try {
-        const response = await axios.get(`${API_ADDRESS}/participantes`, {
-            params: { id_partida }
-        });
+        const response = await axios.get(`${API_ADDRESS}/participantes/${id_partida}`);
         return response.data;
-    } catch (error) {
-        throw getErrorMessage(error, 'Erro ao listar participantes');
-    }
 };

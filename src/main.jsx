@@ -3,20 +3,18 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles/style.scss';
-
 import Home from './views/pages/Home';
 import Partidas from './views/pages/Partidas';
 import Login from './views/pages/Login';
-import Quadras from './views/pages/User/Quadra';
 import { AuthProvider } from './contexts/AuthContext';
 import Sobre from './views/pages/Sobre';
 import Ajuda from './views/pages/Ajuda';
 import PoliticaDePrivacidade from './views/pages/PoliticaDePrivacidade';
 import TermosDeUso from './views/pages/TermosDeUso';
 import Registro from './views/pages/Registro';
-import AdminPartidas from './views/pages/User/AdminPartidas';
 import DashboardAdmin from './views/pages/DashboardAdmin';
 import MinhasPartidas from './views/pages/MinhasPartidas';
+import Quadras from './views/pages/Quadras';
 
 const App = () => {
     return (
@@ -26,7 +24,6 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/partidas" element={<Partidas />} />
-                        <Route path="/partidasadmin" element={<AdminPartidas />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/sobre" element={<Sobre />} />
                         <Route path="/ajuda" element={<Ajuda />} />
