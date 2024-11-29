@@ -20,10 +20,12 @@
                 font-size: 4rem;
                 font-weight: bold;
                 margin-bottom: 1rem;
+                font-family: 'LondrinaSolid-Regular', sans-serif;
             }
             p {
                 font-size: 1.5rem;
                 margin-bottom: 2rem;
+                font-family: 'LondrinaSolid-Regular', sans-serif;
             }
             .cta-button {
                 background-color: #fff;
@@ -32,6 +34,7 @@
                 border-radius: 5px;
                 text-decoration: none;
                 font-weight: bold;
+                font-family: 'LondrinaSolid-Light', sans-serif;
 
                 &:hover {
                     background-color: #f4f4f4;
@@ -75,11 +78,13 @@
             margin-bottom: 1.5rem;
             font-size: 2.5rem;
             color: var(--primary-color);
+            font-family: 'LondrinaSolid-Regular', sans-serif;
         }
 
         p {
             font-size: 1.1rem;
             margin-bottom: 2rem;
+            font-family: 'LondrinaSolid-Regular', sans-serif;
         }
 
         .about-grid {
@@ -92,9 +97,11 @@
                 h3 {
                     color: var(--secondary-color);
                     margin-bottom: 1rem;
+                    font-family: 'LondrinaSolid-Regular', sans-serif;
                 }
                 p {
                     font-size: 1rem;
+                    font-family: 'LondrinaSolid-Regular', sans-serif;
                 }
             }
         }
@@ -120,6 +127,7 @@
             margin-bottom: 2rem;
             font-size: 2rem;
             color: var(--secondary-color);
+            font-family: 'LondrinaSolid-Regular', sans-serif;
         }
 
         .features {
@@ -139,6 +147,10 @@
                 h3 {
                     margin: 1rem 0;
                     color: var(--primary-color);
+                    font-family: 'LondrinaSolid-Regular', sans-serif;
+                }
+                p {
+                    font-family: 'LondrinaSolid-Light', sans-serif;
                 }
             }
         }
@@ -164,6 +176,7 @@
         h2 {
             font-size: 2.5rem;
             margin-bottom: 2rem;
+            font-family: 'LondrinaSolid-Regular', sans-serif;
         }
 
         .depoimentos-container {
@@ -181,11 +194,13 @@
                 p {
                     font-size: 1rem;
                     margin-bottom: 1rem;
+                    font-family: 'LondrinaSolid-Regular', sans-serif;
                 }
 
                 span {
                     font-weight: bold;
                     color: var(--primary-color);
+                    font-family: 'LondrinaSolid-Regular', sans-serif;
                 }
             }
         }
@@ -211,10 +226,12 @@
 
         h2 {
             margin-bottom: 1rem;
+            font-family: 'LondrinaSolid-Regular', sans-serif;
         }
 
         p {
             margin-bottom: 1.5rem;
+            font-family: 'LondrinaSolid-Regular', sans-serif;
         }
 
         .cta-button {
@@ -223,6 +240,7 @@
             padding: 0.8rem 2rem;
             border-radius: 5px;
             text-decoration: none;
+            font-family: 'LondrinaSolid-Light', sans-serif;
 
             &:hover {
                 background-color: #f4f4f4;

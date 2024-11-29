@@ -24,6 +24,7 @@
             h1 {
                 color: var(--primary-color);
                 margin-bottom: 1rem;
+                font-family: 'LondrinaSolid-Regular', sans-serif;
             }
 
             .input-row {
@@ -51,6 +52,7 @@
                     border-radius: 5px;
                     border: 1px solid #ddd;
                     font-size: 1rem;
+                    font-family: 'LondrinaSolid-light', sans-serif;
 
                     &:focus {
                         border-color: var(--primary-color);
@@ -70,6 +72,7 @@
                 font-weight: bold;
                 cursor: pointer;
                 transition: background-color 0.3s;
+                font-family: 'LondrinaSolid-light', sans-serif;
 
                 &:hover {
                     background-color: #7c00b8;

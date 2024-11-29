@@ -25,6 +25,7 @@
             h1 {
                 color: var(--primary-color);
                 margin-bottom: 1rem;
+                font-family: 'LondrinaSolid-Regular', sans-serif;
             }
 
             .input-group {
@@ -33,6 +34,7 @@
                 label {
                     font-weight: bold;
                     color: #333;
+                    font-family: 'LondrinaSolid-thin', sans-serif;
                 }
 
                 input, select {
@@ -42,6 +44,18 @@
                     border-radius: 5px;
                     border: 1px solid #ddd;
                     font-size: 1rem;
+                    font-family: 'LondrinaSolid-Light', sans-serif;
+                }
+
+                a {
+                    font-family: 'LondrinaSolid-Light', sans-serif;
+                    text-decoration: none;
+                    color: var(--primary-color);
+                    transition: color 0.3s;
+
+                    &:hover {
+                        color: #7c00b8;
+                    }
                 }
 
                 input:focus {
@@ -61,6 +75,7 @@
                 font-weight: bold;
                 cursor: pointer;
                 transition: background-color 0.3s;
+                font-family: 'LondrinaSolid-Light', sans-serif;
 
                 &:hover {
                     background-color: #7c00b8;
@@ -82,10 +97,12 @@
             p {
                 margin-top: 1rem;
                 text-align: center;
+                font-family: 'LondrinaSolid-Light', sans-serif;
 
                 a {
                     color: var(--primary-color);
                     text-decoration: none;
+                    font-family: 'LondrinaSolid-Light', sans-serif;
 
                     &:hover {
                         text-decoration: underline;
