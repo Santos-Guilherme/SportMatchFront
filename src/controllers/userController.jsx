@@ -17,11 +17,18 @@ const userSchema = Yup.object().shape({
   endereco: Yup.string().nullable(),
   cidade: Yup.string().nullable(),
   estado: Yup.string().nullable(),
-  foto_perfil: Yup.string().nullable(),
+  foto_perfil: Yup.mixed()
+    .nullable()
+    .test('fileType', 'Tipo de arquivo inválido', (value) => {
+      if (!value) return true; // Aceita valor nulo
+      return ['image/jpeg', 'image/png', 'image/jpg'].includes(value.type);
+    }),
   tipo: Yup.string()
     .oneOf(['jogador', 'administrador'], 'Tipo inválido')
     .required('Tipo é obrigatório'),
 });
+
+
 
 // Registro de novo usuário
 export const registerUser = async (usuario) => {
@@ -39,9 +46,14 @@ export const updateUser = async (id, usuario) => {
     endereco: Yup.string(),
     cidade: Yup.string(),
     estado: Yup.string(),
-    foto_perfil: Yup.string(),
-    tipo: Yup.string().oneOf(['jogador', 'administrador'], 'Tipo inválido'),
-  });
+    foto_perfil: Yup.mixed()
+    .nullable()
+    .test('fileType', 'Tipo de arquivo inválido', (value) => {
+      if (!value) return true; // Aceita valor nulo
+      return ['image/jpeg', 'image/png', 'image/jpg'].includes(value.type);
+    }),
+  tipo: Yup.string().oneOf(['jogador', 'administrador'], 'Tipo inválido'),
+});
 
   await updateSchema.validate(usuario);
   return await UserModel.updateUser(id, usuario);
