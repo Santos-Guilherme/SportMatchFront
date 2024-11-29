@@ -32,8 +32,7 @@ const Login = () => {
             );
 
             if(response.tipo == "administrador"){
-                //navigate('/dashboard');
-                navigate('/');
+                navigate('/dashboard');
             }
             
             else{

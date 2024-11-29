@@ -31,13 +31,12 @@ export const getUserById = async (id) => {
   }
 };
 
-// Buscar usuário por email
 export const getUserByEmail = async (email) => {
   try {
-    const response = await axios.get(`${API_ADDRESS}/usuarios/email`, { params: { email } });
-    return response.data;
+      const response = await axios.get(`${API_ADDRESS}/usuarios/email/${email}`);
+      return response.data;
   } catch (error) {
-    throw getErrorMessage(error, 'Erro ao buscar usuário');
+      throw getErrorMessage(error, 'Erro ao buscar usuário');
   }
 };
 

@@ -76,17 +76,28 @@
         }
 
         .criar-partida-btn {
-            margin-top: 10px;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 10px 20px;
+            margin-top: 15px;
+            background: linear-gradient(135deg, #6E00F7, #AE00FF);
+            color: white;
+            padding: 12px 24px;
             border: none;
             border-radius: 8px;
+            font-family: 'Khula-SemiBold', sans-serif;
+            font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 
             &:hover {
-                background-color: #9200cc;
+                transform: translateY(-3px);
+                box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+                background: linear-gradient(135deg, #5A00C9, #9200CC);
+            }
+
+            &:active {
+                transform: translateY(1px);
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+                background: linear-gradient(135deg, #4A00A9, #7A00A9);
             }
         }
     }

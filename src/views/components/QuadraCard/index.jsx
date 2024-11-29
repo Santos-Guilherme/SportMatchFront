@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./index.scss";
 import { listQuadraImages } from "../../../controllers/quadraController";
 import { API_ADDRESS } from "../../../api/constants";
+import { useAuth } from '../../../contexts/AuthContext';
 
 export default function QuadraCard({ quadra, abrirModal }) {
+    const { user } = useAuth(); // Obtém o usuário do contexto de autenticação
     const [imagens, setImagens] = useState([]);
     const [imagemAtualIndex, setImagemAtualIndex] = useState(0);
 
@@ -66,9 +68,9 @@ export default function QuadraCard({ quadra, abrirModal }) {
                 <p>{quadra.endereco}</p>
                 <p>{quadra.cidade}, {quadra.estado}</p>
                 <p>Modalidades: {quadra.modalidades}</p>
-                <button className="criar-partida-btn" onClick={() => abrirModal(quadra)}>
-                    Criar Partida
-                </button>
+                {user && ( // Exibe o botão somente se o usuário estiver logado
+                <button  className='criar-partida-btn' onClick={() => abrirModal(quadra)}>Criar Partida</button>
+            )}
             </div>
         </div>
     );

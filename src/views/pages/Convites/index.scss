@@ -1,0 +1,86 @@
+.Convites {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+
+    h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        font-family: 'LondrinaSolid-Regular';
+        color: var(--primary-color);
+    }
+
+    .convites-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .convite-card {
+        background: #fff;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+
+            strong {
+                color: var(--primary-color);
+            }
+        }
+
+        .convite-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 1rem;
+
+            button {
+                padding: 0.8rem 1.5rem;
+                border: none;
+                border-radius: 8px;
+                font-size: 1rem;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.2s;
+
+                &.aceitar-btn {
+                    background-color: #4caf50;
+                    color: #fff;
+
+                    &:hover {
+                        background-color: #45a049;
+                    }
+
+                    &:active {
+                        background-color: #388e3c;
+                        transform: translateY(2px);
+                    }
+                }
+
+                &.recusar-btn {
+                    background-color: #f44336;
+                    color: #fff;
+
+                    &:hover {
+                        background-color: #e53935;
+                    }
+
+                    &:active {
+                        background-color: #d32f2f;
+                        transform: translateY(2px);
+                    }
+                }
+            }
+        }
+    }
+}

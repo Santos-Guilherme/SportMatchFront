@@ -3,7 +3,7 @@ import "./index.scss";
 import { useAuth } from "../../../contexts/AuthContext";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { addParticipante, removeParticipante } from "../../../controllers/participanteController";
+import { addParticipante, listParticipantes, removeParticipante } from "../../../controllers/participanteController";
 import { listPartidas } from "../../../controllers/partidaController";
 import PartidaCard from "../../components/PartidaCard";
 
@@ -17,12 +17,14 @@ const Partidas = () => {
             setIsLoading(true);
             const response = await listPartidas();
 
-            // Filtra partidas para exibir apenas as que estão agendadas e não foram criadas pelo usuário
-            const partidasFiltradas = response.filter(
-                (partida) => 
-                    partida.status === "agendada"
+            const partidasComParticipantes = await Promise.all(
+                response.map(async (partida) => {
+                    const participantes = await listParticipantes(partida.id_partida);
+                    return { ...partida, participantes };
+                })
             );
-            setPartidas(partidasFiltradas);
+
+            setPartidas(partidasComParticipantes);
         } catch (error) {
             console.error("Erro ao buscar partidas:", error.message);
         } finally {
@@ -39,9 +41,9 @@ const Partidas = () => {
         }
     };
 
-    const handleSair = async (id_partida) => {
+    const handleSair = async (id_participante) => {
         try {
-            await removeParticipante(id_partida); // Remove a participação
+            await removeParticipante(id_participante); // Use o id_participante diretamente
             fetchPartidas(); // Atualiza a lista de partidas
         } catch (error) {
             console.error("Erro ao sair da partida:", error.message);
@@ -73,8 +75,9 @@ const Partidas = () => {
                             <PartidaCard
                                 key={partida.id_partida}
                                 partida={partida}
+                                participantes={partida.participantes} // Passa os participantes para o card
                                 participarPartida={() => handleParticipar(partida.id_partida)}
-                                sairPartida={() => handleSair(partida.id_partida)}
+                                sairPartida={(id_participante) => handleSair(id_participante)}
                             />
                         ))}
                     </div>

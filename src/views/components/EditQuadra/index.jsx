@@ -7,8 +7,9 @@ import {
     listQuadraImages,
 } from '../../../controllers/quadraController';
 import { useAuth } from '../../../contexts/AuthContext';
+import { API_ADDRESS } from '../../../api/constants'; // Importando o endereço base da API
 
-const EditQuadra = ({ quadra }) => {
+const EditQuadra = ({ quadra, onClose }) => {
     const { user } = useAuth();
     const [quadraData, setQuadraData] = useState(quadra);
     const [images, setImages] = useState([]);
@@ -40,6 +41,7 @@ const EditQuadra = ({ quadra }) => {
         try {
             await updateQuadra(quadra.id_quadra, quadraData);
             alert('Quadra atualizada com sucesso!');
+            onClose();
         } catch (error) {
             console.error('Erro ao atualizar quadra:', error.message);
             alert('Erro ao atualizar quadra.');
@@ -158,14 +160,21 @@ const EditQuadra = ({ quadra }) => {
             <div className="image-management">
                 <h2>Gerenciar Imagens</h2>
                 <div className="current-images">
-                    {images.map((image) => (
-                        <div key={image.id_imagem} className="image-item">
-                            <img src={image.url_imagem} alt="Quadra" />
-                            <button onClick={() => handleDeleteImage(image.id_imagem)}>
-                                Excluir
-                            </button>
-                        </div>
-                    ))}
+                    {images.length > 0 ? (
+                        images.map((image) => (
+                            <div key={image.id_imagem} className="image-item">
+                                <img
+                                    src={`${API_ADDRESS}/${image.url_imagem}`}
+                                    alt="Quadra"
+                                />
+                                <button onClick={() => handleDeleteImage(image.id_imagem)}>
+                                    Excluir
+                                </button>
+                            </div>
+                        ))
+                    ) : (
+                        <p>Nenhuma imagem disponível</p>
+                    )}
                 </div>
                 {images.length < 3 && (
                     <div className="add-image">

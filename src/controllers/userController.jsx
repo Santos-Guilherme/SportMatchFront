@@ -95,3 +95,4 @@ export const updateUserPhoto = async (id, formData) => {
   }
   return await UserModel.updateUserPhoto(id, formData);
 };
+

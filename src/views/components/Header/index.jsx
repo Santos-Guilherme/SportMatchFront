@@ -34,10 +34,21 @@ const Header = () => {
             </div>
 
             <nav className={`links ${menuOpen ? 'mobile-menu open' : ''}`}>
-                <Link to="/partidas">Partidas</Link>
-                <Link to="/quadras">Quadras</Link>
-                <Link to="/ajuda">Ajuda</Link>
-                <Link to="/sobre">Sobre</Link>
+
+                {!user ? (
+                    <div className="links">
+                        <Link to="/quadras">Quadras</Link>
+                        <Link to="/ajuda">Ajuda</Link>
+                        <Link to="/sobre">Sobre</Link>
+                    </div>
+                ) : (
+                    <div className="links">
+                        <Link to="/partidas">Partidas</Link>
+                        <Link to="/quadras">Quadras</Link>
+                        <Link to="/ajuda">Ajuda</Link>
+                        <Link to="/sobre">Sobre</Link>
+                    </div>
+                )}
                 {!user ? (
                     <div className="auth-actions">
                         <Link to="/login" className="auth-button">Entrar</Link>

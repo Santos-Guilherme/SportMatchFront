@@ -116,7 +116,6 @@ export default function Profile() {
 
     return (
         <div className="Profile">
-            <Header></Header>
             <div className="profile-container">
                 <div className="profile-image">
                     <img src={`${API_ADDRESS}/${formData.foto_perfil}`} alt="Perfil" />
@@ -213,7 +212,6 @@ export default function Profile() {
                     </button>
                 </form>
             </div>
-            <Footer></Footer>
         </div>
     );
 }

@@ -74,14 +74,14 @@ const Quadra = () => {
             ) : (
                 <div className="quadra-list">
                     {quadras.length > 0 ? (
-                        (quadras.map((quadra) => (
+                        quadras.map((quadra) => (
                             <AdminCardQuadra
                                 key={quadra.id_quadra}
                                 quadra={quadra}
                                 onEdit={handleEdit}
                                 onDelete={handleDelete}
                             />
-                        )))
+                        ))
                     ) : (
                         <p>Nenhuma quadra encontrada.</p>
                     )}
@@ -90,19 +90,30 @@ const Quadra = () => {
 
             {/* Modal de criação de quadra */}
             {isCreateModalOpen && (
-                <CreateQuadra
-                    onClose={handleCloseModals}
-                    onRefresh={handleRefreshQuadras}
-                />
+                <div className="modal-overlay">
+                    <div className="quadra-modal">
+                        <button className="close-button" onClick={handleCloseModals}>
+                            &times;
+                        </button>
+                        <CreateQuadra onClose={handleCloseModals} onRefresh={handleRefreshQuadras} />
+                    </div>
+                </div>
             )}
 
             {/* Modal de edição de quadra */}
             {editingQuadra && (
-                <EditQuadra
-                    quadra={editingQuadra}
-                    onClose={handleCloseModals}
-                    onRefresh={handleRefreshQuadras}
-                />
+                <div className="modal-overlay">
+                    <div className="quadra-modal">
+                        <button className="close-button" onClick={handleCloseModals}>
+                            &times;
+                        </button>
+                        <EditQuadra
+                            quadra={editingQuadra}
+                            onClose={handleCloseModals}
+                            onRefresh={handleRefreshQuadras}
+                        />
+                    </div>
+                </div>
             )}
         </div>
     );
