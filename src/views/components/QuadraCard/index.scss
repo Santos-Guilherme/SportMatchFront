@@ -8,19 +8,59 @@
     align-items: center;
     padding: 15px;
     transition: transform 0.3s;
+    position: relative;
 
     &:hover {
         transform: translateY(-5px);
     }
 
-    .quadra-imagem {
+    .imagem-container {
+        position: relative;
         width: 100%;
         height: 180px;
-        object-fit: cover;
+
+        .quadra-imagem {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .seta-esquerda,
+        .seta-direita {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 2;
+            font-size: 18px;
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.8);
+            }
+        }
+
+        .seta-esquerda {
+            left: 10px;
+        }
+
+        .seta-direita {
+            right: 10px;
+        }
     }
 
     .quadra-detalhes {
         text-align: center;
+        margin-top: 15px;
 
         h3 {
             font-size: 1.5rem;

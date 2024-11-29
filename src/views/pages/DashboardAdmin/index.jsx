@@ -5,12 +5,16 @@ import PartidasPorQuadraChart from '../../components/PartidasPorQuadraChart';
 import { listPartidasByAdmin, updatePartidaStatus } from '../../../controllers/partidaController';
 import { listQuadrasByAdmin } from '../../../controllers/quadraController';
 import Quadras from '../Quadra';
+import Profile from '../Profile'; // Import da página de perfil
+import { API_ADDRESS } from '../../../api/constants';
+import { Link } from 'react-router-dom';
 
 const DashboardAdmin = () => {
     const { user, logout } = useAuth();
     const [partidas, setPartidas] = useState([]);
     const [quadras, setQuadras] = useState([]);
     const [activeSection, setActiveSection] = useState('visaoGeral'); // Gerencia a seção ativa
+    const [profileMenuOpen, setProfileMenuOpen] = useState(false); // Controle do menu de perfil
 
     useEffect(() => {
         if (user?.id_usuario) {
@@ -59,8 +63,13 @@ const DashboardAdmin = () => {
         <div className="dashboard-admin">
             <aside className="sidebar">
                 <div className="brand">
-                    <i className="bx bxs-smile"></i>
-                    <span>SportsMatch Admin</span>
+                    <Link to="/">
+                    <img
+                        src="/assets/images/SportMatchalt2-removebg-preview.png"
+                        alt="Logo SportsMatch"
+                        className="logo"
+                    />
+                    </Link>
                 </div>
                 <ul className="menu">
                     <li className={activeSection === 'visaoGeral' ? 'active' : ''}>
@@ -82,9 +91,9 @@ const DashboardAdmin = () => {
                         </button>
                     </li>
                     <li>
-                        <button onClick={handleLogout} className="logout">
-                            <i className="bx bxs-log-out-circle"></i>
-                            <span>Sair</span>
+                        <button onClick={() => setActiveSection('notificacoes')}>
+                            <i className="bx bxs-bell"></i>
+                            <span>Notificações</span>
                         </button>
                     </li>
                 </ul>
@@ -94,19 +103,25 @@ const DashboardAdmin = () => {
                 <header className="navbar">
                     <h1>Bem-vindo, {user?.nome}</h1>
                     <div className="navbar-actions">
-                        <input type="search" placeholder="Buscar..." />
                         <div className="profile">
-                            <img src="/assets/images/user-placeholder.png" alt="Foto do Usuário" />
-                            <div className="dropdown">
-                                <button>
-                                    <i className="bx bx-dots-vertical-rounded"></i>
-                                </button>
+                            <img
+                                src={
+                                    user?.foto_perfil
+                                        ? `${API_ADDRESS}/${user.foto_perfil}`
+                                        : '/assets/images/default-avatar.png'
+                                }
+                                alt="Foto do Usuário"
+                                className="profile-avatar"
+                                onClick={() => setProfileMenuOpen(!profileMenuOpen)}
+                            />
+                            {profileMenuOpen && (
                                 <div className="dropdown-menu">
-                                    <a href="/configuracoes">Configurações</a>
-                                    <a href="/notificacoes">Notificações</a>
+                                    <a onClick={() => setActiveSection('perfil')}>
+                                        Configurações
+                                    </a>
                                     <a onClick={handleLogout}>Sair</a>
                                 </div>
-                            </div>
+                            )}
                         </div>
                     </div>
                 </header>
@@ -145,7 +160,8 @@ const DashboardAdmin = () => {
                     )}
 
                     {activeSection === 'minhasQuadras' && <Quadras />} {/* Minhas Quadras */}
-
+                    {activeSection === 'notificacoes' && <h2>Notificações</h2>}
+                    {activeSection === 'perfil' && <Profile />} {/* Página de perfil */}
                     {activeSection === 'partidasSolicitadas' && (
                         <div className="table-data">
                             <div className="table">

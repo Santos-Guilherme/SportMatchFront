@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "./index.scss";
 import { listParticipantes } from "../../../api/participanteModel";
+import { getUserById } from "../../../controllers/userController";
+import { API_ADDRESS } from "../../../api/constants";
 
 export default function PartidaCard({ partida, participarPartida, sairPartida }) {
     const [jogadoresAtuais, setJogadoresAtuais] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
+    const [organizadorImagem, setOrganizadorImagem] = useState(null);
 
     useEffect(() => {
+        // Fetch número de participantes
         const fetchParticipantes = async () => {
             try {
                 setIsLoading(true);
                 if (partida.id_partida) {
                     const participantes = await listParticipantes(partida.id_partida);
-                    setJogadoresAtuais(participantes.length || 0); // Atualiza o número de jogadores atuais
+                    setJogadoresAtuais(participantes.length || 0);
                 }
             } catch (error) {
                 console.error(`Erro ao buscar participantes da partida ${partida.id_partida}:`, error.message);
@@ -23,6 +27,24 @@ export default function PartidaCard({ partida, participarPartida, sairPartida })
 
         fetchParticipantes();
     }, [partida.id_partida]);
+
+    useEffect(() => {
+        // Fetch foto do organizador usando o controlador
+        const fetchOrganizadorFoto = async () => {
+            try {
+                const organizador = await getUserById(partida.id_criador);
+                setOrganizadorImagem(
+                    organizador.foto_perfil
+                        ? `${API_ADDRESS}/${organizador.foto_perfil}`
+                        : "/assets/images/default-avatar.png"
+                );
+            } catch (error) {
+                console.error(`Erro ao buscar imagem do organizador da partida ${partida.id_partida}:`, error.message);
+            }
+        };
+
+        if (partida.id_criador) fetchOrganizadorFoto();
+    }, [partida.id_criador]);
 
     const handleParticipar = () => {
         if (participarPartida) participarPartida(partida.id_partida);
@@ -35,19 +57,16 @@ export default function PartidaCard({ partida, participarPartida, sairPartida })
     return (
         <div className="PartidaCard">
             <div className="detalhes">
-                <img
-                    src={partida.organizadorImagem || "/default-avatar.png"}
-                    alt="Organizador"
-                    className="organizador-imagem"
-                />
+                <div className="detalhes-img">
+                    <img
+                        src={organizadorImagem}
+                        alt="Organizador"
+                        className="organizador-imagem"
+                    />
+                </div>
                 <h3>{partida.nome}</h3>
                 <div className="informacoes">
                     <p className="esporte">
-                        <img
-                            src={`/assets/icons/${partida.esporte}.png`}
-                            alt={partida.esporte}
-                            className="icone-esporte"
-                        />
                         {partida.esporte}
                     </p>
                     <p>Máx. Jogadores: {partida.max_jogadores}</p>

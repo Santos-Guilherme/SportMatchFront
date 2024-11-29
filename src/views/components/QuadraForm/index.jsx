@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './index.scss';
 
-const QuadraForm = ({ onSubmit, initialValues, onCancel }) => {
+const QuadraForm = ({ onSubmit, initialValues, onCancel, onUploadImage }) => {
     const [formData, setFormData] = useState({
-        id_quadra: null, // Inclui o ID para edição
+        id_quadra: null,
         nome: '',
         cep: '',
         endereco: '',
@@ -12,31 +12,36 @@ const QuadraForm = ({ onSubmit, initialValues, onCancel }) => {
         descricao: '',
         modalidades: '',
     });
+    const [images, setImages] = useState([]);
 
-    // Atualiza os valores iniciais ao carregar o componente
     useEffect(() => {
         if (initialValues) {
             setFormData({
+                ...initialValues,
                 id_quadra: initialValues.id_quadra || null,
-                nome: initialValues.nome || '',
-                cep: initialValues.cep || '',
-                endereco: initialValues.endereco || '',
-                cidade: initialValues.cidade || '',
-                estado: initialValues.estado || '',
-                descricao: initialValues.descricao || '',
-                modalidades: initialValues.modalidades || '',
             });
         }
     }, [initialValues]);
+
+    const handleFileChange = (e) => {
+        const files = Array.from(e.target.files);
+        setImages(files);
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        onSubmit(formData); // Envia os dados ao componente pai
+        await onSubmit(formData);
+
+        if (formData.id_quadra && images.length > 0) {
+            for (const image of images) {
+                await onUploadImage(formData.id_quadra, image);
+            }
+        }
     };
 
     return (
@@ -109,13 +114,18 @@ const QuadraForm = ({ onSubmit, initialValues, onCancel }) => {
                     required
                 />
             </label>
+            <label>
+                Imagens da Quadra (máximo 3):
+                <input
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    onChange={handleFileChange}
+                />
+            </label>
             <div className="form-actions">
                 <button type="submit">Salvar</button>
-                {onCancel && (
-                    <button type="button" onClick={onCancel}>
-                        Cancelar
-                    </button>
-                )}
+                {onCancel && <button type="button" onClick={onCancel}>Cancelar</button>}
             </div>
         </form>
     );
