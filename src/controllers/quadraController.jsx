@@ -1,6 +1,30 @@
 import * as QuadraModel from '../api/quadraModel';
 import * as Yup from 'yup';
 
+// Adicionar imagem à quadra
+export const addQuadraImage = async (id_quadra, file) => {
+    if (!id_quadra || !file) {
+        throw new Error('ID da quadra e o arquivo da imagem são obrigatórios');
+    }
+    return await QuadraModel.addQuadraImage(id_quadra, file);
+};
+
+// Listar imagens de uma quadra
+export const listQuadraImages = async (id_quadra) => {
+    if (!id_quadra) {
+        throw new Error('ID da quadra é obrigatório');
+    }
+    return await QuadraModel.listQuadraImages(id_quadra);
+};
+
+// Excluir imagem da quadra
+export const deleteQuadraImage = async (id_imagem) => {
+    if (!id_imagem) {
+        throw new Error('ID da imagem é obrigatório');
+    }
+    return await QuadraModel.deleteQuadraImage(id_imagem);
+};
+
 // Esquema de validação para cadastro de quadras
 const quadraSchema = Yup.object().shape({
     nome: Yup.string().required('Nome da quadra é obrigatório'),
