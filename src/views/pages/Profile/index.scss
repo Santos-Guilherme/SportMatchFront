@@ -1,0 +1,99 @@
+.Profile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Khula-Regular', sans-serif;
+    height: 100%;
+
+    h1 {
+        text-align: center;
+        color: #AE00FF;
+        margin-bottom: 20px;
+    }
+
+    .profile-container {
+        height: 100%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        .profile-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+
+            img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                margin-bottom: 30px;
+            }
+
+            .file-upload-label {
+                background-color: #AE00FF;
+                color: #fff;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: #9300cc;
+                }
+
+                input {
+                    display: none;
+                }
+            }
+        }
+
+        .profile-form {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                label {
+                    font-weight: bold;
+                    color: #333;
+                }
+
+                input {
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    font-size: 16px;
+                }
+            }
+
+            .submit-btn {
+                padding: 10px 20px;
+                background-color: #AE00FF;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: bold;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: #9300cc;
+                }
+            }
+        }
+    }
+}

@@ -58,3 +58,28 @@ export const authenticateUser = async (email, senha) => {
   if (!email || !senha) throw new Error('Email e senha são obrigatórios');
   return await UserModel.authenticateUser(email, senha); // Envia os dados para o modelo
 };
+
+// Busca de usuário pelo ID
+export const getUserById = async (id) => {
+  if (!id) throw new Error('ID é obrigatório');
+  return await UserModel.getUserById(id); // Envia o ID para o modelo
+};
+
+export const updateUserFields = async (id, usuario) => {
+  const updateSchema = Yup.object().shape({
+    celular: Yup.string().nullable(),
+    endereco: Yup.string().nullable(),
+    cep: Yup.string().nullable(),
+  });
+
+  await updateSchema.validate(usuario);
+  return await UserModel.updateUserFields(id, usuario);
+};
+
+
+export const updateUserPhoto = async (id, formData) => {
+  if (!formData.has('foto_perfil')) {
+    throw new Error('A foto de perfil é obrigatória');
+  }
+  return await UserModel.updateUserPhoto(id, formData);
+};

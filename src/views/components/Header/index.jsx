@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../contexts/AuthContext';
+import { API_ADDRESS } from '../../../api/constants'; // Certifique-se de usar o endereço base correto
 import './index.scss';
 
 const Header = () => {
@@ -44,8 +45,19 @@ const Header = () => {
                     </div>
                 ) : (
                     <div className="profile-container">
-                        <div className="profile" onClick={() => setProfileMenuOpen(!profileMenuOpen)}>
-                            <img src={user.foto_perfil || '/assets/images/default-avatar.png'} alt="Perfil" className="profile-avatar" />
+                        <div
+                            className="profile"
+                            onClick={() => setProfileMenuOpen(!profileMenuOpen)}
+                        >
+                            <img
+                                src={
+                                    user?.foto_perfil
+                                        ? `${API_ADDRESS}/${user.foto_perfil}`
+                                        : '/assets/images/default-avatar.png'
+                                }
+                                alt="Perfil"
+                                className="profile-avatar"
+                            />
                         </div>
                         {profileMenuOpen && (
                             <div className="profile-menu">
