@@ -15,6 +15,7 @@ import DashboardAdmin from './views/pages/DashboardAdmin';
 import MinhasPartidas from './views/pages/MinhasPartidas';
 import Quadras from './views/pages/Quadras';
 import EsqueceuSenha from './views/pages/EsqueceuSenha';
+import Profile from './views/pages/Profile';
 
 const App = () => {
     return (
@@ -34,6 +35,7 @@ const App = () => {
                         <Route path="/dashboard" element={<DashboardAdmin />} />
                         <Route path="/minhas-partidas" element={<MinhasPartidas />} />
                         <Route path='/esqueceu_senha' element={<EsqueceuSenha />} />
+                        <Route path='/perfil' element={<Profile />} />
                     </Routes>
                 </div>
             </Router>
