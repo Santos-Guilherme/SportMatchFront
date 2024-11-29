@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -15,6 +14,7 @@ import Registro from './views/pages/Registro';
 import DashboardAdmin from './views/pages/DashboardAdmin';
 import MinhasPartidas from './views/pages/MinhasPartidas';
 import Quadras from './views/pages/Quadras';
+import EsqueceuSenha from './views/pages/EsqueceuSenha';
 
 const App = () => {
     return (
@@ -33,6 +33,7 @@ const App = () => {
                         <Route path="/cadastro" element={<Registro />} />
                         <Route path="/dashboard" element={<DashboardAdmin />} />
                         <Route path="/minhas-partidas" element={<MinhasPartidas />} />
+                        <Route path='/esqueceu_senha' element={<EsqueceuSenha />} />
                     </Routes>
                 </div>
             </Router>

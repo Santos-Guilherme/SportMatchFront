@@ -51,10 +51,9 @@
                     font-family: 'LondrinaSolid-Light', sans-serif;
                     text-decoration: none;
                     color: var(--primary-color);
-                    transition: color 0.3s;
 
                     &:hover {
-                        color: #7c00b8;
+                        text-decoration: underline;
                     }
                 }
 
