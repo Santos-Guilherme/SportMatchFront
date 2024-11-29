@@ -77,6 +77,13 @@ export const getUserById = async (id) => {
   return await UserModel.getUserById(id); // Envia o ID para o modelo
 };
 
+// Busca de usuário pelo ID
+export const getUserByCPF = async (cpf) => {
+  if (!cpf) throw new Error('CPF é obrigatório');
+  return await UserModel.getUserByCPF(cpf); // Envia o ID para o modelo
+};
+
+
 export const updateUserFields = async (id, usuario) => {
   const updateSchema = Yup.object().shape({
     celular: Yup.string().nullable(),

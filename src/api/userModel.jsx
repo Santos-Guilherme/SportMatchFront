@@ -40,6 +40,15 @@ export const getUserByEmail = async (email) => {
   }
 };
 
+export const getUserByCPF = async (cpf) => {
+  try {
+      const response = await axios.get(`${API_ADDRESS}/usuarios/cpf/${cpf}`);
+      return response.data;
+  } catch (error) {
+      throw getErrorMessage(error, 'Erro ao buscar usuário');
+  }
+};
+
 // Autenticar usuário (Login)
 export const authenticateUser = async (email, senha) => {
   try {
